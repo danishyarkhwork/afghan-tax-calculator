@@ -9,11 +9,14 @@ const Header: React.FC = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleNavigation = (url: string) => {
     setLoading(true);
+    setIsMenuOpen(false); // Close mobile menu on navigation
     startTransition(() => {
-      router.push(url).finally(() => setLoading(false));
+      router.push(url);
+      setLoading(false); // This will execute immediately after starting the transition
     });
   };
 
@@ -26,15 +29,14 @@ const Header: React.FC = () => {
         <div className="container mx-auto p-4 flex items-center justify-between max-w-6xl">
           <button
             onClick={() => handleNavigation("/")}
-            className={`text-2xl font-bold text-white ${
-              isActive("/") ? "border-b-2 border-teal-300" : ""
-            }`}
+            className="text-2xl font-bold text-white"
           >
             AFGHAN TAX CALCULATOR
           </button>
           <button
             id="menu-toggle"
             className="text-white focus:outline-none block md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg
               className="w-6 h-6"
@@ -51,7 +53,11 @@ const Header: React.FC = () => {
               ></path>
             </svg>
           </button>
-          <nav className="hidden md:flex md:items-center space-x-4">
+          <nav
+            className={`${
+              isMenuOpen ? "block" : "hidden"
+            } md:flex md:items-center space-x-4`}
+          >
             <ul className="flex flex-col md:flex-row md:space-x-4 mt-4 md:mt-0">
               <li>
                 <button

@@ -4,12 +4,21 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { NumericFormat } from "react-number-format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import Skeleton from "../common/Skeleton";
 
 const SalaryTax: React.FC = () => {
   const [grossSalary, setGrossSalary] = useState<number>(0);
   const [netSalary, setNetSalary] = useState<number>(0);
   const [monthlyTax, setMonthlyTax] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true); // Loading state
   const handle = useFullScreenHandle();
+
+  useEffect(() => {
+    setLoading(true); // Set loading to true initially
+    setTimeout(() => {
+      setLoading(false); // Simulate data loading
+    }, 2000); // Simulated loading time
+  }, []);
 
   const calculateTax = (salary: number) => {
     if (salary <= 5000) {
@@ -128,117 +137,133 @@ const SalaryTax: React.FC = () => {
           className="container mx-auto max-w-6xl bg-gray-100 p-2 rounded-lg"
           id="salary-tax-content"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <div className="mb-4">
-                <label
-                  htmlFor="grossSalary"
-                  className="block text-xl font-semibold text-gray-700 mb-4"
-                >
-                  What is the total monthly salary (gross salary)?
-                </label>
-                <NumericFormat
-                  thousandSeparator={true}
-                  value={grossSalary}
-                  onValueChange={(values) =>
-                    setGrossSalary(values.floatValue || 0)
-                  }
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
-                  placeholder="AFN 0"
-                  isAllowed={({ floatValue }) =>
-                    floatValue === undefined ||
-                    floatValue <= Number.MAX_SAFE_INTEGER
-                  }
-                />
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <Skeleton className="h-10 mb-4" />
+                <Skeleton className="h-10 mb-4" />
+                <Skeleton className="h-10 mb-4" />
               </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="netSalary"
-                  className="block text-lg font-medium text-gray-700"
-                >
-                  Net Salary
-                </label>
-                <NumericFormat
-                  thousandSeparator={true}
-                  value={netSalary}
-                  onValueChange={(values) =>
-                    setNetSalary(values.floatValue || 0)
-                  }
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
-                  placeholder="AFN 0"
-                  isAllowed={({ floatValue }) =>
-                    floatValue === undefined ||
-                    floatValue <= Number.MAX_SAFE_INTEGER
-                  }
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="monthlyTax"
-                  className="block text-lg font-medium text-gray-700"
-                >
-                  Monthly Tax
-                </label>
-                <NumericFormat
-                  thousandSeparator={true}
-                  value={monthlyTax}
-                  onValueChange={(values) =>
-                    setMonthlyTax(values.floatValue || 0)
-                  }
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
-                  placeholder="AFN 0"
-                  isAllowed={({ floatValue }) =>
-                    floatValue === undefined ||
-                    floatValue <= Number.MAX_SAFE_INTEGER
-                  }
-                />
+              <div>
+                <Skeleton className="h-10 mb-4" />
+                <Skeleton className="h-40 mb-4" />
               </div>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4">
-                A Summary of Salary Withholding Tax
-              </h3>
-              <table className="w-full table-auto mb-4">
-                <thead>
-                  <tr className="bg-gray-200">
-                    <th className="px-4 py-2">Monthly Salary</th>
-                    <th className="px-4 py-2">Withholding Amount</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border px-4 py-2">0 to 5,000AFN</td>
-                    <td className="border px-4 py-2">0%</td>
-                  </tr>
-                  <tr className="bg-gray-100">
-                    <td className="border px-4 py-2">5,000AFN to 12,500AFN</td>
-                    <td className="border px-4 py-2">
-                      2% of amount over 5,000AFN
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border px-4 py-2">
-                      12,500AFN to 100,000AFN
-                    </td>
-                    <td className="border px-4 py-2">
-                      150AFN + 10% over 12,500AFN
-                    </td>
-                  </tr>
-                  <tr className="bg-gray-100">
-                    <td className="border px-4 py-2">Over 100,000AFN</td>
-                    <td className="border px-4 py-2">
-                      8,900AFN + 20% over 100,000AFN
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <p className="font-semibold">Payment Due Date:</p>
-              <p>
-                10 days after the end of Solar Hijri month in which payment was
-                made.
-              </p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="grossSalary"
+                    className="block text-xl font-semibold text-gray-700 mb-4"
+                  >
+                    What is the total monthly salary (gross salary)?
+                  </label>
+                  <NumericFormat
+                    thousandSeparator={true}
+                    value={grossSalary}
+                    onValueChange={(values) =>
+                      setGrossSalary(values.floatValue || 0)
+                    }
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
+                    placeholder="AFN 0"
+                    isAllowed={({ floatValue }) =>
+                      floatValue === undefined ||
+                      floatValue <= Number.MAX_SAFE_INTEGER
+                    }
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="netSalary"
+                    className="block text-lg font-medium text-gray-700"
+                  >
+                    Net Salary
+                  </label>
+                  <NumericFormat
+                    thousandSeparator={true}
+                    value={netSalary}
+                    onValueChange={(values) =>
+                      setNetSalary(values.floatValue || 0)
+                    }
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
+                    placeholder="AFN 0"
+                    isAllowed={({ floatValue }) =>
+                      floatValue === undefined ||
+                      floatValue <= Number.MAX_SAFE_INTEGER
+                    }
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="monthlyTax"
+                    className="block text-lg font-medium text-gray-700"
+                  >
+                    Monthly Tax
+                  </label>
+                  <NumericFormat
+                    thousandSeparator={true}
+                    value={monthlyTax}
+                    onValueChange={(values) =>
+                      setMonthlyTax(values.floatValue || 0)
+                    }
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
+                    placeholder="AFN 0"
+                    isAllowed={({ floatValue }) =>
+                      floatValue === undefined ||
+                      floatValue <= Number.MAX_SAFE_INTEGER
+                    }
+                  />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-4">
+                  A Summary of Salary Withholding Tax
+                </h3>
+                <table className="w-full table-auto mb-4">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="px-4 py-2">Monthly Salary</th>
+                      <th className="px-4 py-2">Withholding Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">0 to 5,000AFN</td>
+                      <td className="border px-4 py-2">0%</td>
+                    </tr>
+                    <tr className="bg-gray-100">
+                      <td className="border px-4 py-2">
+                        5,000AFN to 12,500AFN
+                      </td>
+                      <td className="border px-4 py-2">
+                        2% of amount over 5,000AFN
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="border px-4 py-2">
+                        12,500AFN to 100,000AFN
+                      </td>
+                      <td className="border px-4 py-2">
+                        150AFN + 10% over 12,500AFN
+                      </td>
+                    </tr>
+                    <tr className="bg-gray-100">
+                      <td className="border px-4 py-2">Over 100,000AFN</td>
+                      <td className="border px-4 py-2">
+                        8,900AFN + 20% over 100,000AFN
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p className="font-semibold">Payment Due Date:</p>
+                <p>
+                  10 days after the end of Solar Hijri month in which payment
+                  was made.
+                </p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </FullScreen>
