@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState, useTransition } from "react";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import Loader from "./Loader"; // Ensure the correct import path
+import Loader from "./Loader";
 
 const Header: React.FC = () => {
   const pathname = usePathname();
