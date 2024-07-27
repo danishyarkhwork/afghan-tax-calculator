@@ -31,7 +31,7 @@ const HomePage: React.FC = () => {
   return (
     <RootLayout>
       <div className="bg-slate-400 min-h-screen text-white">
-        <main className="container mx-auto p-4 max-w-6xl">
+        <main className="container mx-auto px-4 max-w-6xl py-10">
           <h2 className="text-2xl md:text-4xl font-bold mb-2 text-center md:text-left">
             Welcome to Afghan Tax Calculator
           </h2>
