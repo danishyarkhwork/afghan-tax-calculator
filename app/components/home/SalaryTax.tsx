@@ -17,7 +17,7 @@ const SalaryTax: React.FC = () => {
     setLoading(true); // Set loading to true initially
     setTimeout(() => {
       setLoading(false); // Simulate data loading
-    }, 2000); // Simulated loading time
+    }, 1000); // Simulated loading time
   }, []);
 
   const calculateTax = (salary: number) => {
