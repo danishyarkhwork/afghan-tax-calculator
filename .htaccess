@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Serve index.html for all requests except for existing files and directories
+    RewriteRule ^index\.html$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.html [L]
+</IfModule>
+
+# Cache static files
+<FilesMatch "\.(js|css|jpg|png|gif|svg|ico|json)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
