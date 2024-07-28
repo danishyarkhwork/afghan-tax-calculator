@@ -30,25 +30,21 @@ const HomePage: React.FC = () => {
 
   return (
     <RootLayout>
-      <div className="bg-slate-400 min-h-screen text-white">
+      <div className="bg-teal-700 min-h-screen text-white">
         <main className="container mx-auto px-4 max-w-6xl py-10">
-          <h2 className="text-2xl md:text-4xl font-bold mb-2 text-center md:text-left">
-            Welcome to Afghan Tax Calculator
+          <h2 className="text-2xl md:text-4xl font-bold mb-2 text-center md:text-center">
+            Welcome to Free Online Afghan Tax Calculator
           </h2>
-          <p className=" mb-2">
+
+          <p className="text-lg text-center">
             AfghanTaxCalculator is a free online tool designed to simplify tax
             calculations for Afghan taxpayers, covering salary tax, rental tax,
             contractors tax, business receipts tax, and annual income tax. Users
             can input their financial details to get accurate computations,
-            ensuring compliance with Afghan tax laws and avoiding penalties. The
-            tool offers specific calculators for each tax type: Salary Tax for
-            employees, Rental Tax for landlords, Contractors Tax for
-            self-employed individuals, Business Receipts Tax for business
-            owners, and Annual Income Tax for an overall yearly tax overview.
-            AfghanTaxCalculator is an essential resource for effective tax
-            management in Afghanistan.
+            ensuring compliance with Afghan tax laws and avoiding penalties.
           </p>
-          <div className="flex flex-wrap justify-center md:justify-start space-x-0 md:space-x-4 mb-6 mt-5">
+
+          <div className="flex flex-wrap justify-center md:justify-center space-x-0 md:space-x-4 mb-6 mt-5">
             <button
               onClick={() => setActiveTab("salary")}
               className={`flex items-center px-4 py-2 mb-2 md:mb-0 border-b-2 ${

@@ -10,14 +10,14 @@ const SalaryTax: React.FC = () => {
   const [grossSalary, setGrossSalary] = useState<number>(0);
   const [netSalary, setNetSalary] = useState<number>(0);
   const [monthlyTax, setMonthlyTax] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(true); // Loading state
+  const [loading, setLoading] = useState<boolean>(true);
   const handle = useFullScreenHandle();
 
   useEffect(() => {
-    setLoading(true); // Set loading to true initially
+    setLoading(true);
     setTimeout(() => {
-      setLoading(false); // Simulate data loading
-    }, 1000); // Simulated loading time
+      setLoading(false);
+    }, 1000);
   }, []);
 
   const calculateTax = (salary: number) => {
