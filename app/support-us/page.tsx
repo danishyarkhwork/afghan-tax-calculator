@@ -85,21 +85,6 @@ const SupportPage: React.FC = () => {
                 Submit Feedback
               </a>
             </div>
-
-            <div className="bg-teal-800 p-6 rounded-lg shadow-lg hover:bg-teal-700 transition duration-300 ease-in-out">
-              <h4 className="text-xl font-semibold mb-3">🤝 Volunteer</h4>
-              <p>
-                If you have skills that can help us, consider volunteering.
-                Whether you’re a tax expert or a developer, your contributions
-                are valuable.
-              </p>
-              <a
-                href="mailto:volunteer@afghantaxcalculator.com"
-                className="text-teal-300 hover:text-teal-100"
-              >
-                Contact Us for Volunteer Opportunities
-              </a>
-            </div>
           </div>
 
           <h3 className="text-2xl font-semibold mt-8 mb-4">

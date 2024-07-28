@@ -1,12 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import RootLayout from "./layout";
-import SalaryTax from "./components/home/SalaryTax";
-import RentalTax from "./components/home/RentalTax";
-import ContractorsTax from "./components/home/ContractorsTax";
-import BusinessReceiptsTax from "./components/home/BusinessReceiptsTax";
-import AnnualIncomeTax from "./components/home/AnnualIncomeTax";
+import Meta from "./components/common/Meta";
+
+// Lazy load components
+const SalaryTax = lazy(() => import("./components/home/SalaryTax"));
+const RentalTax = lazy(() => import("./components/home/RentalTax"));
+const ContractorsTax = lazy(() => import("./components/home/ContractorsTax"));
+const BusinessReceiptsTax = lazy(
+  () => import("./components/home/BusinessReceiptsTax")
+);
+const AnnualIncomeTax = lazy(() => import("./components/home/AnnualIncomeTax"));
 
 const HomePage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("salary");
@@ -14,15 +19,35 @@ const HomePage: React.FC = () => {
   const renderActiveTab = () => {
     switch (activeTab) {
       case "salary":
-        return <SalaryTax />;
+        return (
+          <Suspense fallback={<div>Loading...</div>}>
+            <SalaryTax />
+          </Suspense>
+        );
       case "rental":
-        return <RentalTax />;
+        return (
+          <Suspense fallback={<div>Loading...</div>}>
+            <RentalTax />
+          </Suspense>
+        );
       case "contractors":
-        return <ContractorsTax />;
+        return (
+          <Suspense fallback={<div>Loading...</div>}>
+            <ContractorsTax />
+          </Suspense>
+        );
       case "business":
-        return <BusinessReceiptsTax />;
+        return (
+          <Suspense fallback={<div>Loading...</div>}>
+            <BusinessReceiptsTax />
+          </Suspense>
+        );
       case "annual":
-        return <AnnualIncomeTax />;
+        return (
+          <Suspense fallback={<div>Loading...</div>}>
+            <AnnualIncomeTax />
+          </Suspense>
+        );
       default:
         return null;
     }
@@ -30,6 +55,14 @@ const HomePage: React.FC = () => {
 
   return (
     <RootLayout>
+      <Meta
+        title="Afghan Tax Calculator"
+        description="Welcome to Free Online Afghan Tax Calculator"
+        keywords="Afghan Tax, Tax Calculator, Free Online Tax Calculator"
+        url="https://afghantaxcalculator.com"
+        image="https://afghantaxcalculator.com/og-image.jpg"
+        author="Khalid Dansihyar"
+      />
       <div className="bg-teal-700 min-h-screen text-white">
         <main className="container mx-auto px-4 max-w-6xl py-10">
           <h2 className="text-2xl md:text-4xl font-bold mb-2 text-center md:text-center">
@@ -45,71 +78,30 @@ const HomePage: React.FC = () => {
           </p>
 
           <div className="flex flex-wrap justify-center md:justify-center space-x-0 md:space-x-4 mb-6 mt-5">
-            <button
-              onClick={() => setActiveTab("salary")}
-              className={`flex items-center px-4 py-2 md:text-xl mb-2 md:mb-0 border-b-2 ${
-                activeTab === "salary"
-                  ? "border-teal-300"
-                  : "border-transparent"
-              } hover:border-teal-300 transition duration-300`}
-            >
-              <span role="img" aria-label="salary" className="mr-2">
-                💼
-              </span>{" "}
-              Salary Tax
-            </button>
-            <button
-              onClick={() => setActiveTab("rental")}
-              className={`flex items-center px-4 py-2 md:text-xl mb-2 md:mb-0 border-b-2 ${
-                activeTab === "rental"
-                  ? "border-teal-300"
-                  : "border-transparent"
-              } hover:border-teal-300 transition duration-300`}
-            >
-              <span role="img" aria-label="rental" className="mr-2">
-                🏠
-              </span>{" "}
-              Rental Tax
-            </button>
-            <button
-              onClick={() => setActiveTab("contractors")}
-              className={`flex items-center px-4 py-2 md:text-xl mb-2 md:mb-0 border-b-2 ${
-                activeTab === "contractors"
-                  ? "border-teal-300"
-                  : "border-transparent"
-              } hover:border-teal-300 transition duration-300`}
-            >
-              <span role="img" aria-label="contractors" className="mr-2">
-                🔨
-              </span>{" "}
-              Contractors Tax
-            </button>
-            <button
-              onClick={() => setActiveTab("business")}
-              className={`flex items-center px-4 py-2 md:text-xl mb-2 md:mb-0 border-b-2 ${
-                activeTab === "business"
-                  ? "border-teal-300"
-                  : "border-transparent"
-              } hover:border-teal-300 transition duration-300`}
-            >
-              <span role="img" aria-label="business" className="mr-2">
-                📈
-              </span>{" "}
-              Business Receipts Tax
-            </button>
-            <button
-              onClick={() => setActiveTab("annual")}
-              className={`flex items-center px-4 py-2 md:text-xl mb-2 md:mb-0 border-b-2 ${
-                activeTab === "annual"
-                  ? "border-teal-300"
-                  : "border-transparent"
-              } hover:border-teal-300 transition duration-300`}
-            >
-              <span role="img" aria-label="annual-income" className="mr-2">
-                📅
-              </span>{" "}
-              Annual Income Tax
-            </button>
+            {["salary", "rental", "contractors", "business", "annual"].map(
+              (tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`flex items-center px-4 py-2 md:text-xl mb-2 md:mb-0 border-b-2 ${
+                    activeTab === tab ? "border-teal-300" : "border-transparent"
+                  } hover:border-teal-300 transition duration-300`}
+                >
+                  <span role="img" aria-label={tab} className="mr-2">
+                    {tab === "salary"
+                      ? "💼"
+                      : tab === "rental"
+                      ? "🏠"
+                      : tab === "contractors"
+                      ? "🔨"
+                      : tab === "business"
+                      ? "📈"
+                      : "📅"}
+                  </span>{" "}
+                  {tab.charAt(0).toUpperCase() + tab.slice(1)} Tax
+                </button>
+              )
+            )}
           </div>
           <div className="bg-gray-100 text-teal-950 p-6 rounded-lg shadow-md">
             {renderActiveTab()}
