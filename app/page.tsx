@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
           <div className="flex flex-wrap justify-center md:justify-center space-x-0 md:space-x-4 mb-6 mt-5">
             <button
               onClick={() => setActiveTab("salary")}
-              className={`flex items-center px-4 py-2 mb-2 md:mb-0 border-b-2 ${
+              className={`flex items-center px-4 py-2 md:text-xl mb-2 md:mb-0 border-b-2 ${
                 activeTab === "salary"
                   ? "border-teal-300"
                   : "border-transparent"
@@ -60,7 +60,7 @@ const HomePage: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab("rental")}
-              className={`flex items-center px-4 py-2 mb-2 md:mb-0 border-b-2 ${
+              className={`flex items-center px-4 py-2 md:text-xl mb-2 md:mb-0 border-b-2 ${
                 activeTab === "rental"
                   ? "border-teal-300"
                   : "border-transparent"
@@ -73,7 +73,7 @@ const HomePage: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab("contractors")}
-              className={`flex items-center px-4 py-2 mb-2 md:mb-0 border-b-2 ${
+              className={`flex items-center px-4 py-2 md:text-xl mb-2 md:mb-0 border-b-2 ${
                 activeTab === "contractors"
                   ? "border-teal-300"
                   : "border-transparent"
@@ -86,7 +86,7 @@ const HomePage: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab("business")}
-              className={`flex items-center px-4 py-2 mb-2 md:mb-0 border-b-2 ${
+              className={`flex items-center px-4 py-2 md:text-xl mb-2 md:mb-0 border-b-2 ${
                 activeTab === "business"
                   ? "border-teal-300"
                   : "border-transparent"
@@ -99,7 +99,7 @@ const HomePage: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab("annual")}
-              className={`flex items-center px-4 py-2 mb-2 md:mb-0 border-b-2 ${
+              className={`flex items-center px-4 py-2 md:text-xl mb-2 md:mb-0 border-b-2 ${
                 activeTab === "annual"
                   ? "border-teal-300"
                   : "border-transparent"

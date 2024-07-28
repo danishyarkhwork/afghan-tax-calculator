@@ -13,10 +13,10 @@ const Header: React.FC = () => {
 
   const handleNavigation = (url: string) => {
     setLoading(true);
-    setIsMenuOpen(false); // Close mobile menu on navigation
+    setIsMenuOpen(false);
     startTransition(() => {
       router.push(url);
-      setLoading(false); // This will execute immediately after starting the transition
+      setLoading(false);
     });
   };
 
