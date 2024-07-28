@@ -29,10 +29,18 @@ const Header: React.FC = () => {
         <div className="container mx-auto p-4 flex items-center justify-between max-w-6xl">
           <button
             onClick={() => handleNavigation("/")}
-            className="text-2xl font-bold text-white"
+            className="md:text-2xl font-bold text-white xl:text-2xl text-xl"
           >
             AFGHAN TAX CALCULATOR
           </button>
+
+          <a
+            href="#"
+            className="bg-teal-700 md:hidden lg:hidden text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
+          >
+            INSTALL APP
+          </a>
+
           <button
             id="menu-toggle"
             className="text-white focus:outline-none block md:hidden"
@@ -104,7 +112,7 @@ const Header: React.FC = () => {
                   href="#"
                   className="bg-teal-700 text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
                 >
-                  Contact Us
+                  INSTALL APP
                 </a>
               </li>
             </ul>
