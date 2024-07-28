@@ -36,7 +36,7 @@ const Header: React.FC = () => {
 
           <a
             href="#"
-            className="bg-teal-700 md:hidden lg:hidden text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
+            className="bg-teal-700 animate-bounce md:hidden lg:hidden text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
           >
             INSTALL APP
           </a>
@@ -107,19 +107,11 @@ const Header: React.FC = () => {
                   How to Use?
                 </button>
               </li>
-              <li className="md:hidden">
-                <a
-                  href="#"
-                  className="bg-teal-700 text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
-                >
-                  INSTALL APP
-                </a>
-              </li>
             </ul>
           </nav>
           <a
             href="#"
-            className="hidden md:block bg-teal-700 text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
+            className="hidden md:block animate-pulse bg-teal-700 text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
           >
             INSTALL APP
           </a>
