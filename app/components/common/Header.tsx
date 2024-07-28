@@ -113,7 +113,7 @@ const Header: React.FC = () => {
             href="#"
             className="hidden md:block bg-teal-700 text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
           >
-            Contact Us
+            INSTALL APP
           </a>
         </div>
       </header>

@@ -5,12 +5,12 @@ import RootLayout from "../layout";
 const AboutPage: React.FC = () => {
   return (
     <RootLayout>
-      <div className="bg-slate-400 min-h-screen text-white">
+      <div className="bg-teal-700 min-h-screen text-white">
         <main className="container mx-auto p-4 max-w-6xl">
           <h2 className="text-2xl md:text-4xl font-bold mb-2 text-center md:text-left">
             About Us
           </h2>
-          <p className=" mb-2">
+          <p className="text-lg mb-2">
             AfghanTaxCalculator is a free online tool designed to simplify tax
             calculations for Afghan taxpayers, covering salary tax, rental tax,
             contractors tax, business receipts tax, and annual income tax. Users
