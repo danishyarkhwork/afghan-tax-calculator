@@ -9,7 +9,7 @@ import Skeleton from "../common/Skeleton";
 const RentalTax: React.FC = () => {
   const [rent, setRent] = useState<number>(0);
   const [withheldAmount, setWithheldAmount] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(true); // Loading state
+  const [loading, setLoading] = useState<boolean>(true);
   const handle = useFullScreenHandle();
 
   const calculateWithholding = (rent: number) => {
@@ -23,10 +23,10 @@ const RentalTax: React.FC = () => {
   };
 
   useEffect(() => {
-    setLoading(true); // Set loading to true initially
+    setLoading(true);
     setTimeout(() => {
-      setLoading(false); // Simulate data loading
-    }, 1000); // Simulated loading time
+      setLoading(false);
+    }, 1000);
   }, []);
 
   useEffect(() => {

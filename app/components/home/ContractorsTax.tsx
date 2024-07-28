@@ -4,10 +4,12 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { NumericFormat } from "react-number-format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import Skeleton from "../common/Skeleton";
 
 const ContractorsTax: React.FC = () => {
   const [annualPayments, setAnnualPayments] = useState<number>(0);
   const [licensedWithholding, setLicensedWithholding] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
   const [nonLicensedWithholding, setNonLicensedWithholding] =
     useState<number>(0);
   const handle = useFullScreenHandle();
@@ -21,6 +23,13 @@ const ContractorsTax: React.FC = () => {
       return payments * 0.07;
     }
   };
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
 
   useEffect(() => {
     setLicensedWithholding(calculateWithholding(annualPayments, true));
@@ -91,100 +100,114 @@ const ContractorsTax: React.FC = () => {
           className="container mx-auto max-w-6xl bg-gray-100 p-2 rounded-lg"
           id="contractors-tax-content"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <div className="mb-4">
-                <label
-                  htmlFor="annualPayments"
-                  className="block text-lg font-medium text-gray-700"
-                >
-                  How much do you pay your vendor/contractor? (Sum of all
-                  invoices for the fiscal year)
-                </label>
-                <NumericFormat
-                  thousandSeparator={true}
-                  value={annualPayments}
-                  onValueChange={(values) =>
-                    setAnnualPayments(values.floatValue || 0)
-                  }
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
-                  placeholder="AFN 0"
-                  isAllowed={({ floatValue }) =>
-                    floatValue === undefined ||
-                    floatValue <= Number.MAX_SAFE_INTEGER
-                  }
-                />
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <Skeleton className="h-10 mb-4" />
+                <Skeleton className="h-10 mb-4" />
+                <Skeleton className="h-10 mb-4" />
               </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="licensedWithholding"
-                  className="block text-lg font-medium text-gray-700"
-                >
-                  Licensed Contractor Tax Withholding
-                </label>
-                <NumericFormat
-                  thousandSeparator={true}
-                  value={licensedWithholding}
-                  readOnly
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl bg-gray-200"
-                  placeholder="AFN 0"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="nonLicensedWithholding"
-                  className="block text-lg font-medium text-gray-700"
-                >
-                  Non-Licensed Contractor Tax Withholding
-                </label>
-                <NumericFormat
-                  thousandSeparator={true}
-                  value={nonLicensedWithholding}
-                  readOnly
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl bg-gray-200"
-                  placeholder="AFN 0"
-                />
+              <div>
+                <Skeleton className="h-10 mb-4" />
+                <Skeleton className="h-40 mb-4" />
               </div>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4">
-                A Summary of Contract Withholding Tax
-              </h3>
-              <table className="w-full table-auto mb-4">
-                <thead>
-                  <tr className="bg-gray-200">
-                    <th className="px-4 py-2">
-                      Annual Payments to Contractors
-                    </th>
-                    <th className="px-4 py-2">Withholding Amount</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border px-4 py-2">0 to 500,000AFN</td>
-                    <td className="border px-4 py-2">0%</td>
-                  </tr>
-                  <tr className="bg-gray-100">
-                    <td className="border px-4 py-2">
-                      Over 500,000AFN to a licensed contractor
-                    </td>
-                    <td className="border px-4 py-2">2% flat</td>
-                  </tr>
-                  <tr>
-                    <td className="border px-4 py-2">
-                      Over 500,000AFN to a non-licensed contractor
-                    </td>
-                    <td className="border px-4 py-2">7% flat</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p className="font-semibold">Payment Due Date:</p>
-              <p>
-                10 days after the end of Solar Hijri month in which payment was
-                made.
-              </p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="annualPayments"
+                    className="block text-lg font-medium text-gray-700"
+                  >
+                    How much do you pay your vendor/contractor? (Sum of all
+                    invoices for the fiscal year)
+                  </label>
+                  <NumericFormat
+                    thousandSeparator={true}
+                    value={annualPayments}
+                    onValueChange={(values) =>
+                      setAnnualPayments(values.floatValue || 0)
+                    }
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
+                    placeholder="AFN 0"
+                    isAllowed={({ floatValue }) =>
+                      floatValue === undefined ||
+                      floatValue <= Number.MAX_SAFE_INTEGER
+                    }
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="licensedWithholding"
+                    className="block text-lg font-medium text-gray-700"
+                  >
+                    Licensed Contractor Tax Withholding
+                  </label>
+                  <NumericFormat
+                    thousandSeparator={true}
+                    value={licensedWithholding}
+                    readOnly
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl bg-gray-200"
+                    placeholder="AFN 0"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="nonLicensedWithholding"
+                    className="block text-lg font-medium text-gray-700"
+                  >
+                    Non-Licensed Contractor Tax Withholding
+                  </label>
+                  <NumericFormat
+                    thousandSeparator={true}
+                    value={nonLicensedWithholding}
+                    readOnly
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl bg-gray-200"
+                    placeholder="AFN 0"
+                  />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-4">
+                  A Summary of Contract Withholding Tax
+                </h3>
+                <table className="w-full table-auto mb-4">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="px-4 py-2">
+                        Annual Payments to Contractors
+                      </th>
+                      <th className="px-4 py-2">Withholding Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">0 to 500,000AFN</td>
+                      <td className="border px-4 py-2">0%</td>
+                    </tr>
+                    <tr className="bg-gray-100">
+                      <td className="border px-4 py-2">
+                        Over 500,000AFN to a licensed contractor
+                      </td>
+                      <td className="border px-4 py-2">2% flat</td>
+                    </tr>
+                    <tr>
+                      <td className="border px-4 py-2">
+                        Over 500,000AFN to a non-licensed contractor
+                      </td>
+                      <td className="border px-4 py-2">7% flat</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p className="font-semibold">Payment Due Date:</p>
+                <p>
+                  10 days after the end of Solar Hijri month in which payment
+                  was made.
+                </p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </FullScreen>
