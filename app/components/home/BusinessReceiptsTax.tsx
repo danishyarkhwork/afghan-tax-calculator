@@ -4,15 +4,24 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { NumericFormat } from "react-number-format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import Skeleton from "../common/Skeleton";
 
 const BusinessReceiptsTax: React.FC = () => {
   const [receivableAmount, setReceivableAmount] = useState<number>(0);
   const [airlinesTax, setAirlinesTax] = useState<number>(0);
   const [hospitalityTax, setHospitalityTax] = useState<number>(0);
   const [otherIndustriesTax, setOtherIndustriesTax] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
   const handle = useFullScreenHandle();
 
   const calculateTax = (amount: number, rate: number) => amount * rate;
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
 
   useEffect(() => {
     setAirlinesTax(calculateTax(receivableAmount, 0.1));
@@ -84,114 +93,128 @@ const BusinessReceiptsTax: React.FC = () => {
           className="container mx-auto max-w-6xl bg-gray-100 p-2 rounded-lg"
           id="business-receipts-tax-content"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <div className="mb-4">
-                <label
-                  htmlFor="receivableAmount"
-                  className="block text-lg font-medium text-gray-700"
-                >
-                  What was the total receivable amount for this quarter?
-                </label>
-                <NumericFormat
-                  thousandSeparator={true}
-                  value={receivableAmount}
-                  onValueChange={(values) =>
-                    setReceivableAmount(values.floatValue || 0)
-                  }
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
-                  placeholder="AFN 0"
-                  isAllowed={({ floatValue }) =>
-                    floatValue === undefined ||
-                    floatValue <= Number.MAX_SAFE_INTEGER
-                  }
-                />
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <Skeleton className="h-10 mb-4" />
+                <Skeleton className="h-10 mb-4" />
+                <Skeleton className="h-10 mb-4" />
               </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="airlinesTax"
-                  className="block text-lg font-medium text-gray-700"
-                >
-                  Airlines, Telecommunications, & Superior Hospitality
-                  Industries
-                </label>
-                <NumericFormat
-                  thousandSeparator={true}
-                  value={airlinesTax}
-                  readOnly
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl bg-gray-200"
-                  placeholder="AFN 0"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="hospitalityTax"
-                  className="block text-lg font-medium text-gray-700"
-                >
-                  Regular Hospitality Industries
-                </label>
-                <NumericFormat
-                  thousandSeparator={true}
-                  value={hospitalityTax}
-                  readOnly
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl bg-gray-200"
-                  placeholder="AFN 0"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="otherIndustriesTax"
-                  className="block text-lg font-medium text-gray-700"
-                >
-                  All other industries
-                </label>
-                <NumericFormat
-                  thousandSeparator={true}
-                  value={otherIndustriesTax}
-                  readOnly
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl bg-gray-200"
-                  placeholder="AFN 0"
-                />
+              <div>
+                <Skeleton className="h-10 mb-4" />
+                <Skeleton className="h-40 mb-4" />
               </div>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4">
-                A Summary of Business Receipts Tax (BRT)
-              </h3>
-              <table className="w-full table-auto mb-4">
-                <thead>
-                  <tr className="bg-gray-200">
-                    <th className="px-4 py-2">Industries</th>
-                    <th className="px-4 py-2">Rate</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border px-4 py-2">
-                      Airlines, Telecommunications, & Superior Hospitality
-                      Industries
-                    </td>
-                    <td className="border px-4 py-2">10% flat</td>
-                  </tr>
-                  <tr className="bg-gray-100">
-                    <td className="border px-4 py-2">
-                      Regular Hospitality Industries
-                    </td>
-                    <td className="border px-4 py-2">5% flat</td>
-                  </tr>
-                  <tr>
-                    <td className="border px-4 py-2">All other industries</td>
-                    <td className="border px-4 py-2">4% flat</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p className="font-semibold">Payment Due Date:</p>
-              <p>
-                15 days after the end of the Solar Hijri quarter in which
-                payment was received.
-              </p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="receivableAmount"
+                    className="block text-lg font-medium text-gray-700"
+                  >
+                    What was the total receivable amount for this quarter?
+                  </label>
+                  <NumericFormat
+                    thousandSeparator={true}
+                    value={receivableAmount}
+                    onValueChange={(values) =>
+                      setReceivableAmount(values.floatValue || 0)
+                    }
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
+                    placeholder="AFN 0"
+                    isAllowed={({ floatValue }) =>
+                      floatValue === undefined ||
+                      floatValue <= Number.MAX_SAFE_INTEGER
+                    }
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="airlinesTax"
+                    className="block text-lg font-medium text-gray-700"
+                  >
+                    Airlines, Telecommunications, & Superior Hospitality
+                    Industries
+                  </label>
+                  <NumericFormat
+                    thousandSeparator={true}
+                    value={airlinesTax}
+                    readOnly
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl bg-gray-200"
+                    placeholder="AFN 0"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="hospitalityTax"
+                    className="block text-lg font-medium text-gray-700"
+                  >
+                    Regular Hospitality Industries
+                  </label>
+                  <NumericFormat
+                    thousandSeparator={true}
+                    value={hospitalityTax}
+                    readOnly
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl bg-gray-200"
+                    placeholder="AFN 0"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="otherIndustriesTax"
+                    className="block text-lg font-medium text-gray-700"
+                  >
+                    All other industries
+                  </label>
+                  <NumericFormat
+                    thousandSeparator={true}
+                    value={otherIndustriesTax}
+                    readOnly
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl bg-gray-200"
+                    placeholder="AFN 0"
+                  />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-4">
+                  A Summary of Business Receipts Tax (BRT)
+                </h3>
+                <table className="w-full table-auto mb-4">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="px-4 py-2">Industries</th>
+                      <th className="px-4 py-2">Rate</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">
+                        Airlines, Telecommunications, & Superior Hospitality
+                        Industries
+                      </td>
+                      <td className="border px-4 py-2">10% flat</td>
+                    </tr>
+                    <tr className="bg-gray-100">
+                      <td className="border px-4 py-2">
+                        Regular Hospitality Industries
+                      </td>
+                      <td className="border px-4 py-2">5% flat</td>
+                    </tr>
+                    <tr>
+                      <td className="border px-4 py-2">All other industries</td>
+                      <td className="border px-4 py-2">4% flat</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p className="font-semibold">Payment Due Date:</p>
+                <p>
+                  15 days after the end of the Solar Hijri quarter in which
+                  payment was received.
+                </p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </FullScreen>
