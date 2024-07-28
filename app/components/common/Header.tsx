@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useTransition } from "react";
+import React, { useState, useEffect, useTransition } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Loader from "./Loader";
 
@@ -10,6 +10,11 @@ const Header: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    // Ensure initial render does not depend on client-only state
+    setLoading(false);
+  }, []);
 
   const handleNavigation = (url: string) => {
     setLoading(true);
