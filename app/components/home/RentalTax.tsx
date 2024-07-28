@@ -4,10 +4,12 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { NumericFormat } from "react-number-format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import Skeleton from "../common/Skeleton";
 
 const RentalTax: React.FC = () => {
   const [rent, setRent] = useState<number>(0);
   const [withheldAmount, setWithheldAmount] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true); // Loading state
   const handle = useFullScreenHandle();
 
   const calculateWithholding = (rent: number) => {
@@ -19,6 +21,13 @@ const RentalTax: React.FC = () => {
       return rent * 0.15;
     }
   };
+
+  useEffect(() => {
+    setLoading(true); // Set loading to true initially
+    setTimeout(() => {
+      setLoading(false); // Simulate data loading
+    }, 1000); // Simulated loading time
+  }, []);
 
   useEffect(() => {
     setWithheldAmount(calculateWithholding(rent));
@@ -87,78 +96,98 @@ const RentalTax: React.FC = () => {
           className="container mx-auto max-w-6xl bg-gray-100 p-2 rounded-lg"
           id="rental-tax-content"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <div className="mb-4">
-                <label
-                  htmlFor="rent"
-                  className="block text-xl font-semibold text-gray-700 mb-4"
-                >
-                  How much are you paying/collecting in rent?
-                </label>
-                <NumericFormat
-                  thousandSeparator={true}
-                  value={rent}
-                  onValueChange={(values) => setRent(values.floatValue || 0)}
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
-                  placeholder="AFN 0"
-                  isAllowed={({ floatValue }) =>
-                    floatValue === undefined ||
-                    floatValue <= Number.MAX_SAFE_INTEGER
-                  }
-                />
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <Skeleton className="h-10 mb-4" />
+                <Skeleton className="h-10 mb-4" />
+                <Skeleton className="h-10 mb-4" />
               </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="withheldAmount"
-                  className="block text-lg font-medium text-gray-700"
-                >
-                  Amount to Withhold
-                </label>
-                <NumericFormat
-                  thousandSeparator={true}
-                  value={withheldAmount}
-                  readOnly
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl bg-gray-200"
-                  placeholder="AFN 0"
-                />
+              <div>
+                <Skeleton className="h-10 mb-4" />
+                <Skeleton className="h-40 mb-4" />
               </div>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4">
-                A Summary of Rental Withholding Tax
-              </h3>
-              <table className="w-full table-auto mb-4">
-                <thead>
-                  <tr className="bg-gray-200">
-                    <th className="px-4 py-2">Monthly Rent</th>
-                    <th className="px-4 py-2">Withholding Amount</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border px-4 py-2">0 to 10,000AFN</td>
-                    <td className="border px-4 py-2">0%</td>
-                  </tr>
-                  <tr className="bg-gray-100">
-                    <td className="border px-4 py-2">
-                      10,000AFN to 100,000AFN
-                    </td>
-                    <td className="border px-4 py-2">10% flat</td>
-                  </tr>
-                  <tr>
-                    <td className="border px-4 py-2">Over 100,000AFN</td>
-                    <td className="border px-4 py-2">15% flat</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p className="font-semibold">Payment Due Date:</p>
-              <p>
-                15 days after the end of Solar Hijri month in which payment was
-                made.
-              </p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="rent"
+                    className="block text-xl font-semibold text-gray-700 mb-4"
+                  >
+                    How much are you paying in rent?
+                  </label>
+                  <NumericFormat
+                    thousandSeparator={true}
+                    value={rent}
+                    onValueChange={(values) => setRent(values.floatValue || 0)}
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
+                    placeholder="AFN 0"
+                    isAllowed={({ floatValue }) =>
+                      floatValue === undefined ||
+                      floatValue <= Number.MAX_SAFE_INTEGER
+                    }
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="withheldAmount"
+                    className="block text-lg font-medium text-gray-700"
+                  >
+                    Withheld Amount
+                  </label>
+                  <NumericFormat
+                    thousandSeparator={true}
+                    value={withheldAmount}
+                    onValueChange={(values) =>
+                      setWithheldAmount(values.floatValue || 0)
+                    }
+                    className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-xl"
+                    placeholder="AFN 0"
+                    isAllowed={({ floatValue }) =>
+                      floatValue === undefined ||
+                      floatValue <= Number.MAX_SAFE_INTEGER
+                    }
+                  />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-4">
+                  A Summary of Rental Withholding Tax
+                </h3>
+                <table className="w-full table-auto mb-4">
+                  <thead>
+                    <tr className="bg-gray-200">
+                      <th className="px-4 py-2">Rent Amount</th>
+                      <th className="px-4 py-2">Withholding Percentage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border px-4 py-2">0 to 10,000AFN</td>
+                      <td className="border px-4 py-2">0%</td>
+                    </tr>
+                    <tr className="bg-gray-100">
+                      <td className="border px-4 py-2">
+                        10,000AFN to 100,000AFN
+                      </td>
+                      <td className="border px-4 py-2">10%</td>
+                    </tr>
+                    <tr>
+                      <td className="border px-4 py-2">Over 100,000AFN</td>
+                      <td className="border px-4 py-2">15%</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p className="font-semibold">Payment Due Date:</p>
+                <p>
+                  10 days after the end of Solar Hijri month in which payment
+                  was made.
+                </p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </FullScreen>
