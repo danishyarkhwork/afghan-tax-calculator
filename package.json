@@ -11,12 +11,12 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
     "react-full-screen": "^1.1.1",
-    "react-fullscreen": "^0.1.0",
     "react-number-format": "^5.4.0",
     "react-to-print": "^2.15.1"
   },

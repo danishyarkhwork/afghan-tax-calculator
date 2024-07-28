@@ -3,6 +3,11 @@ import { useReactToPrint } from "react-to-print";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { NumericFormat } from "react-number-format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faExpand,
+  faCompress,
+  faPrint,
+} from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import Skeleton from "../common/Skeleton";
 
@@ -50,30 +55,35 @@ const AnnualIncomeTax: React.FC = () => {
   return (
     <FullScreen handle={handle}>
       <div className="bg-gray-100 min-h-screen text-gray-900 p-6">
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="text-3xl font-bold">Annual Income Tax</h1>
-          <div>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+          <div className="mt-4 sm:mt-0">
+            <h1 className="text-3xl font-bold">Annual Income Tax</h1>
+          </div>
+          <div className="mt-4 sm:mt-0 flex flex-row sm:flex-row sm:justify-between items-center sm:space-x-2 space-y-2 sm:space-y-0">
             {!handle.active && (
               <button
                 onClick={handle.enter}
-                className="mr-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
-                ⛶ Full Screen
+                <FontAwesomeIcon icon={faExpand} className="mr-2" />
+                Full Screen
               </button>
             )}
             {handle.active && (
               <button
                 onClick={handle.exit}
-                className="mr-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
+                <FontAwesomeIcon icon={faCompress} className="mr-2" />
                 Exit Full Screen
               </button>
             )}
             <button
               onClick={handlePrint}
-              className="mr-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+              className="inline-flex items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
             >
-              🖨️ Print
+              <FontAwesomeIcon icon={faPrint} className="mr-2" />
+              Print
             </button>
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
@@ -81,7 +91,7 @@ const AnnualIncomeTax: React.FC = () => {
               )}&quote=${encodeURIComponent(shareText)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mr-2 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               <FontAwesomeIcon icon={faFacebook} className="mr-2" />
               Share
@@ -92,7 +102,7 @@ const AnnualIncomeTax: React.FC = () => {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+              className="inline-flex items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
             >
               <FontAwesomeIcon icon={faWhatsapp} className="mr-2" />
               Share
