@@ -10,10 +10,39 @@ const Header: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] =
+    useState<BeforeInstallPromptEvent | null>(null);
+  const [showInstallButton, setShowInstallButton] = useState(false);
 
   useEffect(() => {
-    // Ensure initial render does not depend on client-only state
-    setLoading(false);
+    const handleBeforeInstallPrompt = (e: BeforeInstallPromptEvent) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowInstallButton(true);
+    };
+
+    const checkIfAppInstalled = () => {
+      if (
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone
+      ) {
+        setShowInstallButton(false);
+      } else {
+        setShowInstallButton(true);
+      }
+    };
+
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    checkIfAppInstalled();
+    window.addEventListener("appinstalled", checkIfAppInstalled);
+
+    return () => {
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt
+      );
+      window.removeEventListener("appinstalled", checkIfAppInstalled);
+    };
   }, []);
 
   const handleNavigation = (url: string) => {
@@ -23,6 +52,21 @@ const Header: React.FC = () => {
       router.push(url);
       setLoading(false);
     });
+  };
+
+  const handleInstallClick = () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === "accepted") {
+          console.log("User accepted the A2HS prompt");
+        } else {
+          console.log("User dismissed the A2HS prompt");
+        }
+        setDeferredPrompt(null);
+        setShowInstallButton(false);
+      });
+    }
   };
 
   const isActive = (path: string) => pathname === path;
@@ -39,12 +83,14 @@ const Header: React.FC = () => {
             AFGHAN TAX CALCULATOR
           </button>
 
-          <a
-            href="#"
-            className="bg-teal-700 animate-bounce md:hidden lg:hidden text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
-          >
-            INSTALL APP
-          </a>
+          {showInstallButton && (
+            <button
+              onClick={handleInstallClick}
+              className="bg-teal-700 md:hidden lg:hidden animate-bounce text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
+            >
+              INSTALL APP
+            </button>
+          )}
 
           <button
             id="menu-toggle"
@@ -114,12 +160,14 @@ const Header: React.FC = () => {
               </li>
             </ul>
           </nav>
-          <a
-            href="#"
-            className="hidden md:block animate-pulse bg-teal-700 text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
-          >
-            INSTALL APP
-          </a>
+          {showInstallButton && (
+            <button
+              onClick={handleInstallClick}
+              className="hidden md:block animate-pulse bg-teal-700 text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
+            >
+              INSTALL APP
+            </button>
+          )}
         </div>
       </header>
     </>
