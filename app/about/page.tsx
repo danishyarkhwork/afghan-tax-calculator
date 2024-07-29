@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "This is the about page of my Next.js app",
+  description: "Afghan Tax Calculator",
   keywords: ["Tax Calculator", "Afghan Tax", "Free Tax Calculator"],
   openGraph: {
     title: "About Us",
