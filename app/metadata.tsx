@@ -25,6 +25,6 @@ export const metadata: Metadata = {
     // ],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "../public/icons/facvicon.ico",
   },
 };

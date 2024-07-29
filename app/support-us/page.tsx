@@ -1,6 +1,4 @@
-// app/support/page.tsx
 import React from "react";
-import RootLayout from "../layout";
 
 const SupportPage: React.FC = () => {
   return (

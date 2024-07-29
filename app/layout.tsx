@@ -13,7 +13,6 @@ export { metadata };
 const RootLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <head></head>
       <body>
         <Header />
         {children}

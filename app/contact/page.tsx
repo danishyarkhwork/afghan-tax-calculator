@@ -1,6 +1,4 @@
-// app/contact/page.tsx
 import React from "react";
-import RootLayout from "../layout";
 
 const ContactPage: React.FC = () => {
   return (

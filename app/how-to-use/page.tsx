@@ -1,5 +1,4 @@
 import React from "react";
-import RootLayout from "../layout";
 
 const HowToUsePage: React.FC = () => {
   return (

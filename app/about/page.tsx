@@ -1,4 +1,3 @@
-// app/about/page.tsx
 import React from "react";
 import { Metadata } from "next";
 
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://afghantaxcalculator.com/",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: ".../public/icons/facvicon.ico",
   },
 };
 
