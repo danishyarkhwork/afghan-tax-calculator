@@ -112,54 +112,67 @@ const Header: React.FC = () => {
               ></path>
             </svg>
           </button>
-          <nav
-            className={`${
-              isMenuOpen ? "block" : "hidden"
-            } md:flex md:items-center space-x-4`}
-          >
-            <ul className="flex flex-col md:flex-row md:space-x-4 mt-4 md:mt-0">
-              <li>
+
+          {/* Menu Overlay */}
+          {isMenuOpen && (
+            <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center">
+              <div className="bg-teal-950 text-white w-4/5 max-w-sm p-4 rounded relative">
                 <button
-                  onClick={() => handleNavigation("/")}
-                  className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
-                    isActive("/") ? "border-b-2 border-teal-300" : ""
-                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="absolute top-2 right-2 text-white text-2xl"
                 >
-                  Home
+                  &times;
                 </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavigation("/about")}
-                  className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
-                    isActive("/about") ? "border-b-2 border-teal-300" : ""
-                  }`}
-                >
-                  About Us
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavigation("/support-us")}
-                  className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
-                    isActive("/support-us") ? "border-b-2 border-teal-300" : ""
-                  }`}
-                >
-                  Support Us
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNavigation("/how-to-use")}
-                  className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
-                    isActive("/how-to-use") ? "border-b-2 border-teal-300" : ""
-                  }`}
-                >
-                  How to Use?
-                </button>
-              </li>
-            </ul>
-          </nav>
+                <ul className="flex flex-col space-y-4">
+                  <li>
+                    <button
+                      onClick={() => handleNavigation("/")}
+                      className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
+                        isActive("/") ? "border-b-2 border-teal-300" : ""
+                      }`}
+                    >
+                      Home
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => handleNavigation("/about")}
+                      className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
+                        isActive("/about") ? "border-b-2 border-teal-300" : ""
+                      }`}
+                    >
+                      About Us
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => handleNavigation("/support-us")}
+                      className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
+                        isActive("/support-us")
+                          ? "border-b-2 border-teal-300"
+                          : ""
+                      }`}
+                    >
+                      Support Us
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => handleNavigation("/how-to-use")}
+                      className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
+                        isActive("/how-to-use")
+                          ? "border-b-2 border-teal-300"
+                          : ""
+                      }`}
+                    >
+                      How to Use?
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
+
           {showInstallButton && (
             <button
               onClick={handleInstallClick}
