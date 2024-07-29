@@ -13,37 +13,54 @@ const Header: React.FC = () => {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [showInstallButton, setShowInstallButton] = useState(false);
+  const [isAppInstalled, setIsAppInstalled] = useState(false);
+  const [isPWA, setIsPWA] = useState(false);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: BeforeInstallPromptEvent) => {
       e.preventDefault();
       setDeferredPrompt(e);
-      setShowInstallButton(true);
-    };
-
-    const checkIfAppInstalled = () => {
-      if (
-        window.matchMedia("(display-mode: standalone)").matches ||
-        window.navigator.standalone
-      ) {
-        setShowInstallButton(false);
-      } else {
+      if (!isPWA && !isAppInstalled) {
         setShowInstallButton(true);
       }
     };
 
+    const checkIfAppInstalled = () => {
+      const isInstalled =
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone;
+      setIsAppInstalled(isInstalled);
+      if (isInstalled) {
+        setShowInstallButton(false);
+      }
+    };
+
+    const handleAppInstalled = () => {
+      setIsAppInstalled(true);
+      setShowInstallButton(false);
+    };
+
+    const checkIfPWA = () => {
+      const standalone = window.matchMedia(
+        "(display-mode: standalone)"
+      ).matches;
+      setIsPWA(standalone);
+    };
+
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    window.addEventListener("appinstalled", handleAppInstalled);
+
     checkIfAppInstalled();
-    window.addEventListener("appinstalled", checkIfAppInstalled);
+    checkIfPWA();
 
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
         handleBeforeInstallPrompt
       );
-      window.removeEventListener("appinstalled", checkIfAppInstalled);
+      window.removeEventListener("appinstalled", handleAppInstalled);
     };
-  }, []);
+  }, [isPWA, isAppInstalled]);
 
   const handleNavigation = (url: string) => {
     setLoading(true);
@@ -60,11 +77,12 @@ const Header: React.FC = () => {
       deferredPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === "accepted") {
           console.log("User accepted the A2HS prompt");
+          setIsAppInstalled(true);
+          setShowInstallButton(false);
         } else {
           console.log("User dismissed the A2HS prompt");
         }
         setDeferredPrompt(null);
-        setShowInstallButton(false);
       });
     }
   };
@@ -83,7 +101,8 @@ const Header: React.FC = () => {
             AFGHAN TAX CALCULATOR
           </button>
 
-          {showInstallButton && (
+          {/* Conditional rendering for install/open buttons */}
+          {!isPWA && !isAppInstalled && showInstallButton && (
             <button
               onClick={handleInstallClick}
               className="bg-teal-700 md:hidden lg:hidden animate-bounce text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
@@ -91,7 +110,16 @@ const Header: React.FC = () => {
               INSTALL APP
             </button>
           )}
+          {isPWA && isAppInstalled && (
+            <button
+              onClick={() => window.open("/support-us", "_self")}
+              className="bg-teal-700 md:hidden lg:hidden animate-pulse text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
+            >
+              DONATE
+            </button>
+          )}
 
+          {/* Mobile Menu Toggle */}
           <button
             id="menu-toggle"
             className="text-white focus:outline-none block md:hidden"
@@ -113,7 +141,74 @@ const Header: React.FC = () => {
             </svg>
           </button>
 
-          {/* Menu Overlay */}
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex md:items-center space-x-4">
+            <ul className="flex flex-row space-x-4 mt-4 md:mt-0">
+              <li>
+                <button
+                  onClick={() => handleNavigation("/")}
+                  className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
+                    isActive("/") ? "border-b-2 border-teal-300" : ""
+                  }`}
+                >
+                  Home
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigation("/about")}
+                  className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
+                    isActive("/about") ? "border-b-2 border-teal-300" : ""
+                  }`}
+                >
+                  About Us
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigation("/support-us")}
+                  className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
+                    isActive("/support-us") ? "border-b-2 border-teal-300" : ""
+                  }`}
+                >
+                  Support Us
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNavigation("/how-to-use")}
+                  className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
+                    isActive("/how-to-use") ? "border-b-2 border-teal-300" : ""
+                  }`}
+                >
+                  How to Use?
+                </button>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Show "INSTALL APP" button on larger devices if not installed */}
+          {!isPWA && !isAppInstalled && showInstallButton && (
+            <button
+              onClick={handleInstallClick}
+              className="hidden md:block animate-bounce bg-teal-700 text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
+            >
+              INSTALL APP
+            </button>
+          )}
+
+          {/* Show "OPEN APP" button on larger devices if installed */}
+
+          {isPWA && isAppInstalled && (
+            <button
+              onClick={() => window.open("/support-us", "_self")}
+              className="hidden md:block animate-pulse bg-teal-700 text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
+            >
+              DONATE
+            </button>
+          )}
+
+          {/* Mobile Menu Overlay */}
           {isMenuOpen && (
             <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center">
               <div className="bg-teal-950 text-white w-4/5 max-w-sm p-4 rounded relative">
@@ -171,15 +266,6 @@ const Header: React.FC = () => {
                 </ul>
               </div>
             </div>
-          )}
-
-          {showInstallButton && (
-            <button
-              onClick={handleInstallClick}
-              className="hidden md:block animate-pulse bg-teal-700 text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
-            >
-              INSTALL APP
-            </button>
           )}
         </div>
       </header>
