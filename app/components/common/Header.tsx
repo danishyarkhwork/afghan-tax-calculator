@@ -28,7 +28,7 @@ const Header: React.FC = () => {
     const checkIfAppInstalled = () => {
       const isInstalled =
         window.matchMedia("(display-mode: standalone)").matches ||
-        window.navigator.standalone;
+        (window.navigator as any).standalone;
       setIsAppInstalled(isInstalled);
       if (isInstalled) {
         setShowInstallButton(false);
@@ -47,7 +47,10 @@ const Header: React.FC = () => {
       setIsPWA(standalone);
     };
 
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    window.addEventListener(
+      "beforeinstallprompt",
+      handleBeforeInstallPrompt as EventListener
+    );
     window.addEventListener("appinstalled", handleAppInstalled);
 
     checkIfAppInstalled();
@@ -56,7 +59,7 @@ const Header: React.FC = () => {
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
-        handleBeforeInstallPrompt
+        handleBeforeInstallPrompt as EventListener
       );
       window.removeEventListener("appinstalled", handleAppInstalled);
     };
