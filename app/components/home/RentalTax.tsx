@@ -47,7 +47,7 @@ const RentalTax: React.FC = () => {
 
   return (
     <FullScreen handle={handle}>
-      <div className="bg-gray-100 min-h-screen text-gray-900 p-6">
+      <div className="bg-gray-100 min-h-screen text-gray-900 md:p-6 p-3 lg:p-6">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
           <div className="mt-4 sm:mt-0">
             <h1 className="text-3xl font-bold">Rental Tax</h1>
@@ -73,7 +73,7 @@ const RentalTax: React.FC = () => {
             )}
             <button
               onClick={handlePrint}
-              className="inline-flex items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+              className="inline-flex items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 hidden md:inline-flex"
             >
               <FontAwesomeIcon icon={faPrint} className="mr-2" />
               Print

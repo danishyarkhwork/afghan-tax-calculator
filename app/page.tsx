@@ -92,7 +92,7 @@ const HomePage: React.FC = () => {
             )
           )}
         </div>
-        <div className="bg-gray-100 text-teal-950 p-6 rounded-lg shadow-md">
+        <div className="bg-gray-100 text-teal-950 lg:p-6 md:p-6 p-0 rounded-lg shadow-md">
           {renderActiveTab()}
         </div>
       </main>
