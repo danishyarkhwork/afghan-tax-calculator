@@ -1,6 +1,5 @@
-// pages/blog/page.tsx
 import Link from "next/link";
-import { blogPosts } from "../data/blogPosts"; // Adjust path as needed
+import { blogPosts } from "../data/blogPosts";
 
 const BlogPage: React.FC = () => {
   return (

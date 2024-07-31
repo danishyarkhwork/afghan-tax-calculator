@@ -1,4 +1,3 @@
-// data/blogPosts.ts
 export const blogPosts = [
   {
     slug: "first-post",

@@ -1,7 +1,6 @@
-// pages/blog/blog-post/[slug].tsx
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { blogPosts } from "../../data/blogPosts"; // Ensure this path is correct
+import { blogPosts } from "../../data/blogPosts";
 
 interface BlogPost {
   slug: string;
