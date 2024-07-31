@@ -169,6 +169,16 @@ const Header: React.FC = () => {
               </li>
               <li>
                 <button
+                  onClick={() => handleNavigation("/blog")}
+                  className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
+                    isActive("/blog") ? "border-b-2 border-teal-300" : ""
+                  }`}
+                >
+                  Blog
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => handleNavigation("/support-us")}
                   className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
                     isActive("/support-us") ? "border-b-2 border-teal-300" : ""
@@ -240,6 +250,16 @@ const Header: React.FC = () => {
                       }`}
                     >
                       About Us
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => handleNavigation("/blog")}
+                      className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
+                        isActive("/blog") ? "border-b-2 border-teal-300" : ""
+                      }`}
+                    >
+                      Blog
                     </button>
                   </li>
                   <li>
