@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <footer className="bg-gray-800 text-white py-4">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center flex-col md:flex-row">
-          <p className="text-sm mr-1">
+          <p className="mr-1">
             &copy; {currentYear}{" "}
             <a
               href="https://afghantaxcalculator.com/"
