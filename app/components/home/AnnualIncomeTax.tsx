@@ -54,7 +54,7 @@ const AnnualIncomeTax: React.FC = () => {
 
   return (
     <FullScreen handle={handle}>
-      <div className="bg-gray-100 min-h-screen text-gray-900 md:p-6 p-3 lg:p-6">
+      <div className="bg-gray-100 rounded min-h-screen text-gray-900 md:p-6 p-3 lg:p-6">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
           <div className="mt-4 sm:mt-0">
             <h1 className="text-3xl font-bold">Annual Income Tax</h1>
