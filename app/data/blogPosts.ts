@@ -5,14 +5,20 @@ export const blogPosts = [
     title: "First Post",
     excerpt: "This is the summary of the first post.",
     content: "This is the full content of the first post.",
-    image: "/images/first-post-thumbnail.jpg", // Path to the thumbnail image
+    image: "/blog-images/first.png",
   },
   {
     slug: "second-post",
     title: "Second Post",
     excerpt: "This is the summary of the second post.",
     content: "This is the full content of the second post.",
-    image: "/images/second-post-thumbnail.jpg", // Path to the thumbnail image
+    image: "/blog-images/second.png",
   },
-  // Add more posts as needed
+  {
+    slug: "third-post",
+    title: "Third Post",
+    excerpt: "This is the summary of the second post.",
+    content: "This is the full content of the second post.",
+    image: "/blog-images/third.jpg",
+  },
 ];

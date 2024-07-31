@@ -1,14 +1,13 @@
-// pages/index.tsx
-import React from "react";
+// pages/blog/page.tsx
 import Link from "next/link";
-import { blogPosts } from "../data/blogPosts";
+import { blogPosts } from "../data/blogPosts"; // Adjust path as needed
 
 const BlogPage: React.FC = () => {
   return (
     <div className="bg-teal-700 min-h-screen text-white">
       <main className="container mx-auto p-4 max-w-6xl">
         <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center md:text-left">
-          Blog Page
+          Tax Guidelines in Afghanistan
         </h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post) => (
@@ -24,7 +23,7 @@ const BlogPage: React.FC = () => {
               <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
               <p className="text-sm mb-4">{post.excerpt}</p>
               <Link
-                href={`/blog-post/${post.slug}`}
+                href={`/blog/blog-post/${post.slug}`}
                 className="text-teal-400 hover:underline"
               >
                 Read more
