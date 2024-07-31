@@ -95,10 +95,10 @@ const HowToUsePage: React.FC = () => {
         <p className="text-lg leading-relaxed">
           Contact us at{" "}
           <a
-            href="mailto:support@afghantaxcalculator.com"
+            href="mailto:info@khaliddanishyar.com"
             className="text-teal-300 hover:text-teal-100"
           >
-            support@afghantaxcalculator.com
+            info@khaliddanishyar.com
           </a>{" "}
           for prompt assistance.
         </p>
