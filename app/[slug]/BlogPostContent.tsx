@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { FaBook, FaDownload } from "react-icons/fa";
 
 interface BlogPost {
   slug: string;
@@ -13,6 +14,7 @@ interface BlogPost {
   author: string;
   date: string;
   keywords: string[];
+  guideLink?: string; // Optional guide link
 }
 
 interface BlogPostContentProps {
@@ -76,7 +78,7 @@ const BlogPostContent: React.FC<BlogPostContentProps> = ({ post }) => {
               src={post.image}
               alt={post.title}
               width={1200}
-              height={600}
+              height={628}
               className="w-full h-96 object-cover mb-8 rounded-md shadow-lg"
             />
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 text-center">
@@ -94,13 +96,28 @@ const BlogPostContent: React.FC<BlogPostContentProps> = ({ post }) => {
               ))}
             </div>
             <footer className="text-center mt-12">
-              <p className="text-sm">
+              <p className="text-sm mb-6">
                 Written by <span className="font-semibold">{post.author}</span>{" "}
                 on{" "}
                 <time dateTime={post.date}>
                   {new Date(post.date).toLocaleDateString()}
                 </time>
               </p>
+              <div className="flex justify-center gap-4 mb-5">
+                <a
+                  href={post.guideLink}
+                  className="bg-teal-500 text-white py-2 px-4 rounded flex items-center text-sm hover:bg-teal-400 transition-colors"
+                  download
+                >
+                  <FaDownload className="mr-2" /> Download Guidelines
+                </a>
+                <a
+                  href="https://afghantaxcalculator.com/"
+                  className="bg-teal-500 text-white py-2 px-4 rounded flex items-center text-sm hover:bg-teal-400 transition-colors"
+                >
+                  <FaBook className="mr-2" /> Calculate Tax
+                </a>
+              </div>
             </footer>
           </article>
         </main>

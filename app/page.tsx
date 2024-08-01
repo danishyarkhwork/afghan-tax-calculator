@@ -138,25 +138,29 @@ const HomePage: React.FC = () => {
                   key={post.slug}
                   className="bg-teal-800 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105"
                 >
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    width={600}
-                    height={192}
-                    className="w-full h-48 object-cover mb-4 rounded-md"
-                  />
-                  <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
+                  <Link href={`/${post.slug}`}>
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      width={600}
+                      height={192}
+                      className="w-full h-48 object-cover mb-4 rounded-md"
+                    />
+                  </Link>
+                  <Link href={`/${post.slug}`}>
+                    <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
+                  </Link>
                   <p className="text-sm mb-4">{post.excerpt}</p>
                   <div className="flex justify-between">
                     <Link
                       href={`/${post.slug}`}
-                      className="bg-teal-500 text-white py-2 px-4 rounded flex items-center text-sm hover:bg-teal-400 transition-colors"
+                      className="text-white py-2 px-4 rounded flex items-center text-sm hover:bg-teal-400 transition-colors"
                     >
                       <FaBook className="mr-2" /> Read More
                     </Link>
                     <a
                       href={post.guideLink}
-                      className="bg-teal-500 text-white py-2 px-4 rounded flex items-center text-sm hover:bg-teal-400 transition-colors"
+                      className="text-white py-2 px-4 rounded flex items-center text-sm hover:bg-teal-400 transition-colors"
                       download
                     >
                       <FaDownload className="mr-2" /> Download Guide
@@ -166,7 +170,7 @@ const HomePage: React.FC = () => {
               ))}
             </div>
           )}
-          <div className="text-center mt-8">
+          <div className="text-center mt-14 mb-4">
             <Link
               href="/blog"
               className="bg-teal-500 text-white py-2 px-6 rounded hover:bg-teal-400 transition-colors"

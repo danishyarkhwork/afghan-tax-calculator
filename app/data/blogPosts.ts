@@ -144,7 +144,7 @@ export const blogPosts = [
     slug: "taxpayer-identification-number-tin",
     title: "Taxpayer Identification Number (TIN) of Afghanistan",
     excerpt:
-      "Anyone required to pay taxes or customs duties, or anyone with a bank account, must apply for a Taxpayer Identification Number (TIN) as per Article 86 of the Income Tax Law 2009.",
+      "Anyone required to pay taxes or customs duties, or anyone with a bank account, must apply for a Taxpayer Identification Number (TIN) as per Article 86 of the Income Tax Law 2009. The purpose of the TIN is twofold: it ensures...",
     content: [
       {
         subtitle: "Introduction",
