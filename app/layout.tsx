@@ -31,7 +31,7 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
       </head>
       <body>
         <Header />
-        <main className="container mx-auto bg-teal-700">{children}</main>
+        <main className="w-full bg-teal-700">{children}</main>
         <PageTracker />
         <Footer />
       </body>

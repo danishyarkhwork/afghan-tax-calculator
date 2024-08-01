@@ -24,7 +24,7 @@ const BlogPage: React.FC = () => {
               <p className="text-sm mb-4">{post.excerpt}</p>
               <div className="flex justify-between">
                 <Link
-                  href={`/blog/blog-post/${post.slug}`}
+                  href={`/${post.slug}`}
                   className="bg-teal-500 text-white py-1 px-3 rounded flex items-center text-sm hover:bg-teal-400 transition-colors"
                 >
                   <FaBook className="mr-2" /> Read More
