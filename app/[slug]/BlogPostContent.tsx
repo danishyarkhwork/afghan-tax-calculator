@@ -19,7 +19,7 @@ const BlogPostContent: React.FC<BlogPostContentProps> = ({ post }) => {
         <img
           src={post.image}
           alt={post.title}
-          className="w-full h-60 object-cover mb-4 rounded-md"
+          className="w-full h-96 object-cover mb-4 rounded-md"
         />
         <h1 className="text-3xl md:text-5xl font-bold mb-4">{post.title}</h1>
         <div className="prose lg:prose-xl">
