@@ -21,6 +21,8 @@ const BlogPostContent: React.FC<BlogPostContentProps> = ({ post }) => {
         <Image
           src={post.image}
           alt={post.title}
+          width={1200}
+          height={192}
           className="w-full h-96 object-cover mb-4 rounded-md"
         />
         <h1 className="text-3xl md:text-5xl font-bold mb-4">{post.title}</h1>

@@ -19,6 +19,8 @@ const BlogPage: React.FC = () => {
               <Image
                 src={post.image}
                 alt={post.title}
+                width={600}
+                height={192}
                 className="w-full h-48 object-cover mb-4 rounded-md"
               />
               <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
