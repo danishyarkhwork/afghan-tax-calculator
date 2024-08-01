@@ -41,9 +41,9 @@ const SupportPage: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-teal-300 hover:text-teal-100">
-                  Donate via Bank Transfer
-                </a>
+                <p className="text-teal-300 hover:text-teal-100">
+                  +93 70 332 5036
+                </p>
               </li>
             </ul>
           </div>
@@ -93,10 +93,10 @@ const SupportPage: React.FC = () => {
           Thank you for being a part of the AfghanTaxCalculator community. For
           any questions or additional support, please reach out to us at{" "}
           <a
-            href="mailto:support@afghantaxcalculator.com"
+            href="mailto:support@info@khaliddanishyar.com"
             className="text-teal-300 hover:text-teal-100"
           >
-            support@afghantaxcalculator.com
+            info@khaliddanishyar.com
           </a>
           .
         </p>

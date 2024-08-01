@@ -1,12 +1,14 @@
 import React from "react";
 
 const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-gray-800 text-white py-4">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center flex-col md:flex-row">
-          <p className="text-sm mr-1">
-            &copy; 2024{" "}
+          <p className="mr-1">
+            &copy; {currentYear}{" "}
             <a
               href="https://afghantaxcalculator.com/"
               className="font-semibold text-teal-400 hover:text-teal-300"
@@ -17,7 +19,6 @@ const Footer: React.FC = () => {
           </p>
           <div className="hidden md:block">
             {" "}
-            {/* This will hide on mobile and show on medium and larger screens */}
             Powered by{" "}
             <a
               href="https://khaliddanishyar.com/"
@@ -28,7 +29,6 @@ const Footer: React.FC = () => {
           </div>
           <div className="block md:hidden text-sm mt-2">
             {" "}
-            {/* This will only be shown on mobile */}
             Powered by{" "}
             <a
               href="https://khaliddanishyar.com/"

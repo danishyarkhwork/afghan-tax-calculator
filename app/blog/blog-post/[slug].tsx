@@ -1,12 +1,15 @@
+// src/app/blog/blog-post/[slug].tsx
+
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { blogPosts } from "../../data/blogPosts";
 
+// Define the BlogPost type, assuming content is an array of objects
 interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
-  content: string;
+  content: { subtitle: string; paragraph: string }[]; // Content is an array of objects
   image: string;
 }
 
@@ -16,9 +19,10 @@ const BlogPostPage: React.FC = () => {
   const [post, setPost] = useState<BlogPost | null>(null);
 
   useEffect(() => {
-    if (slug) {
-      const foundPost = blogPosts.find((post) => post.slug === slug);
-      setPost(foundPost || null);
+    if (slug && typeof slug === "string") {
+      // Ensure slug is a string
+      const foundPost = blogPosts.find((post) => post.slug === slug) || null;
+      setPost(foundPost);
     }
   }, [slug]);
 
@@ -36,7 +40,12 @@ const BlogPostPage: React.FC = () => {
         />
         <h1 className="text-3xl md:text-5xl font-bold mb-4">{post.title}</h1>
         <div className="prose lg:prose-xl">
-          <p>{post.content}</p>
+          {post.content.map((section, index) => (
+            <div key={index}>
+              <h2 className="text-xl font-semibold">{section.subtitle}</h2>
+              <p>{section.paragraph}</p>
+            </div>
+          ))}
         </div>
       </main>
     </div>

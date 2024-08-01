@@ -1,4 +1,5 @@
 // src/app/layout.tsx
+
 import React, { ReactNode } from "react";
 import Script from "next/script";
 import "./globals.css";
@@ -18,7 +19,6 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
     <html lang="en">
       <head>
         <link rel="manifest" href="/manifest.json" />
-        {/* Google Analytics script */}
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -31,7 +31,7 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
       </head>
       <body>
         <Header />
-        {children}
+        <main className="container mx-auto bg-teal-700">{children}</main>
         <PageTracker />
         <Footer />
       </body>
