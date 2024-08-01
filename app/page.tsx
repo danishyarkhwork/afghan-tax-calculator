@@ -111,7 +111,7 @@ const HomePage: React.FC = () => {
 
         {/* Blog Section */}
         <section className="mt-12">
-          <h3 className="text-xl md:text-3xl font-bold mb-4 text-center">
+          <h3 className="text-4xl md:text-4xl font-bold mb-4 text-center">
             Recent Blog Posts
           </h3>
           {loading ? (
