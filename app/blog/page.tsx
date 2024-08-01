@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { blogPosts } from "../data/blogPosts";
 import { FaBook, FaDownload } from "react-icons/fa";
+import Image from "next/image";
 
 const BlogPage: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const BlogPage: React.FC = () => {
               key={post.slug}
               className="bg-teal-800 p-6 rounded-lg shadow-lg"
             >
-              <img
+              <Image
                 src={post.image}
                 alt={post.title}
                 className="w-full h-48 object-cover mb-4 rounded-md"
