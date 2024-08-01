@@ -1,6 +1,11 @@
 "use client";
 
-import React, { useState, Suspense, lazy } from "react";
+import React, { useState, Suspense, lazy, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { FaBook, FaDownload } from "react-icons/fa";
+import Skeleton from "./components/common/Skeleton"; // Adjust the import path as necessary
+import { blogPosts } from "./data/blogPosts";
 
 // Lazy load components
 const SalaryTax = lazy(() => import("./components/home/SalaryTax"));
@@ -13,6 +18,13 @@ const AnnualIncomeTax = lazy(() => import("./components/home/AnnualIncomeTax"));
 
 const HomePage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("salary");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a delay for loading blog posts
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const renderActiveTab = () => {
     switch (activeTab) {
@@ -52,7 +64,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="bg-teal-700 min-h-screen text-white">
+    <div className="bg-teal-700 min-h-full text-white">
       <main className="container mx-auto px-4 max-w-6xl py-10">
         <h2 className="text-2xl md:text-4xl font-bold mb-2 text-center md:text-center">
           Welcome to Free Online Afghan Tax Calculator
@@ -92,9 +104,77 @@ const HomePage: React.FC = () => {
             )
           )}
         </div>
+
         <div className="bg-gray-100 text-teal-950 lg:p-6 md:p-6 p-0 rounded-lg shadow-md">
           {renderActiveTab()}
         </div>
+
+        {/* Blog Section */}
+        <section className="mt-12">
+          <h3 className="text-xl md:text-3xl font-bold mb-4 text-center">
+            Recent Blog Posts
+          </h3>
+          {loading ? (
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {Array.from({ length: 3 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="bg-teal-800 p-6 rounded-lg shadow-lg"
+                >
+                  <Skeleton className="w-full h-48 rounded-md mb-4" />
+                  <Skeleton className="h-6 mb-2" />
+                  <Skeleton className="h-4 mb-4" />
+                  <div className="flex justify-between">
+                    <Skeleton className="w-1/3 h-8" />
+                    <Skeleton className="w-1/3 h-8" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {blogPosts.slice(0, 3).map((post) => (
+                <div
+                  key={post.slug}
+                  className="bg-teal-800 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                >
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    width={600}
+                    height={192}
+                    className="w-full h-48 object-cover mb-4 rounded-md"
+                  />
+                  <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
+                  <p className="text-sm mb-4">{post.excerpt}</p>
+                  <div className="flex justify-between">
+                    <Link
+                      href={`/${post.slug}`}
+                      className="bg-teal-500 text-white py-2 px-4 rounded flex items-center text-sm hover:bg-teal-400 transition-colors"
+                    >
+                      <FaBook className="mr-2" /> Read More
+                    </Link>
+                    <a
+                      href={post.guideLink}
+                      className="bg-teal-500 text-white py-2 px-4 rounded flex items-center text-sm hover:bg-teal-400 transition-colors"
+                      download
+                    >
+                      <FaDownload className="mr-2" /> Download Guide
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+          <div className="text-center mt-8">
+            <Link
+              href="/blog"
+              className="bg-teal-500 text-white py-2 px-6 rounded hover:bg-teal-400 transition-colors"
+            >
+              All Blog Posts
+            </Link>
+          </div>
+        </section>
       </main>
     </div>
   );

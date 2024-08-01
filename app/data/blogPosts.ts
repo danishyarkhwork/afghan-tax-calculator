@@ -477,4 +477,206 @@ export const blogPosts = [
       "Salary tax in Afghanistan",
     ],
   },
+  {
+    slug: "accounting-methods-recordkeeping",
+    title: "Accounting Methods and Recordkeeping in Afghanistan",
+    excerpt:
+      "This guide outlines accounting methods and recordkeeping requirements for tax purposes in Afghanistan, including the cash and accrual methods and best practices for maintaining accurate records.",
+    content: [
+      {
+        subtitle: "Introduction",
+        paragraph:
+          "This guide outlines the rules and regulations for accounting and keeping records for tax purposes.",
+      },
+      {
+        subtitle: "Accounting Method",
+        paragraph:
+          "An accounting method is a set of rules used to determine when and how income and expenses are reported. There are two basic accounting methods: cash and accrual.",
+      },
+      {
+        subtitle: "Cash Method",
+        paragraph:
+          "Under the cash method, you report income in the tax year when received. Expenses are generally deducted or capitalized in the tax year they are paid. Individuals typically use the cash method.",
+      },
+      {
+        subtitle: "Accrual Method",
+        paragraph:
+          "Under the accrual method, you report income in the tax year it is earned, even if received in another year. Expenses are deducted or capitalized in the year incurred, regardless of payment. Corporations and Limited Liability Companies are generally required to use the accrual method.",
+      },
+      {
+        subtitle: "Examples",
+        paragraph:
+          "Example 1: You run a carpet shop and sell a carpet for AFN 5,000 on 29 Hut 1388, but receive payment on 6 Hamal 1389. Under cash accounting, you record the income in 1389. Under accrual accounting, you record it in 1388. Example 2: You received an advance rental payment of AFN 300,000 for six months. Under cash accounting, record the income in 1388. Under accrual accounting, report AFN 150,000 in 1388 and AFN 150,000 in 1389.",
+      },
+      {
+        subtitle: "Recordkeeping",
+        paragraph:
+          "According to the Income Tax Law 2009, businesses must keep adequate records to verify income and expenses. Good records are essential for accurate tax reporting and to avoid arbitrary tax assessments.",
+      },
+      {
+        subtitle: "Kinds of Records to Keep",
+        paragraph:
+          "The law does not specify exact records, but businesses should choose a system that clearly shows income and expenses. Supporting documents include cash register tapes, bank deposit slips, invoices, and receipts.",
+      },
+      {
+        subtitle: "Supporting Documents",
+        paragraph:
+          "Documents should verify gross receipts, purchases, expenses, and assets. Examples include cash register tapes, invoices, and sales slips.",
+      },
+      {
+        subtitle: "Recording Business Transactions",
+        paragraph:
+          "A good recordkeeping system includes summarizing transactions in journals and ledgers. These can be maintained manually or electronically.",
+      },
+    ],
+    image: "/blog-images/accounting-methods.png",
+    guideLink: "/taxes/Guide 17 - Accounting Methods and Recordkeeping.pdf",
+    author: "John Doe",
+    date: "2024-08-01",
+    keywords: [
+      "Accounting methods and recordkeeping afghanistan pdf free download",
+      "Accounting methods and recordkeeping afghanistan book pdf",
+      "Ministry of Finance Afghanistan",
+      "Afghanistan Tax Law",
+      "Afghanistan Revenue Department",
+      "Taxation system in Afghanistan PDF",
+      "Taxation in Afghanistan",
+      "Rent tax in Afghanistan",
+    ],
+  },
+  {
+    slug: "deductible-business-expenses-afghanistan",
+    title: "Deductible and Non-Deductible Business Expenses in Afghanistan",
+    excerpt:
+      "This guide outlines deductible and non-deductible business expenses for residents of Afghanistan according to the Income Tax Law of 2009, including examples and key considerations for managing tax liabilities.",
+    content: [
+      {
+        subtitle: "Introduction",
+        paragraph:
+          "Understanding what business expenses are deductible can significantly impact a company's financial health and tax liabilities. This guide outlines deductible and non-deductible business expenses for residents of Afghanistan according to the Income Tax Law of 2009. For tax issues pertaining to non-residents, please refer to Guide 23, Tax Issues for Non-Residents.",
+      },
+      {
+        subtitle: "What Expenses Are Deductible?",
+        paragraph:
+          "Expenses and costs ordinarily incurred in generating income are deductible from profit to determine taxable income. Article 18 of the Income Tax Law 2009 specifies the deductible expenses. Non-ordinary or unnecessary expenses are not deductible.",
+      },
+      {
+        subtitle: "Deductible Expenses Include",
+        paragraph:
+          "1. **Production and Trade Costs**: Expenses related to production or trade, such as insurance and freight.\n2. **Supplies and Utilities**: Costs of supplies, materials, fuel, electricity, water, and other ordinary expenses used in business operations.\n3. **Wages and Salaries**: Payments for services rendered by employees, including wages, salaries, commissions, and fees.\n4. **Interest on Business Loans**: Interest paid on loans used for business purposes.\n5. **Dividends**: Dividends paid by legal entities organized under Afghan law.\n6. **Rent**: Rent paid for property used in trade or business.\n7. **Repairs and Maintenance**: Costs for repairing and maintaining business properties and equipment.\n8. **Depreciation**: Depreciation of movable and immovable property used in business, according to the Income Tax Manual. Depreciation must be spread over the asset's useful life and cannot exceed the asset's cost.\n9. **Business Taxes**: Taxes necessary for doing business or producing income, excluding income taxes.\n10. **Damage from Disasters**: Losses from disasters (fire, earthquake) to the extent not covered by insurance, spread over three years.\n11. **Bad Debts**: Losses from bad debts, provided they were previously included in taxable income and deemed unrecoverable.\n12. **Other Business Expenses**: Other necessary expenses of doing business or holding property for income.",
+      },
+      {
+        subtitle: "Example",
+        paragraph:
+          "An employee with a monthly salary of AFN 20,000, receiving a promotion to AFN 24,000, and a year-end bonus of 5%, would have total wages and bonuses deductible as follows:\n\n- Salary (first 6 months): 6 x AFN 20,000 = AFN 120,000\n- Salary (second 6 months): 6 x AFN 24,000 = AFN 144,000\n- Total Salary: AFN 264,000\n- Bonus: 5% of AFN 264,000 = AFN 13,200\n- Total Deductible Wages and Bonus: AFN 277,200",
+      },
+      {
+        subtitle: "What Expenses Are Not Deductible?",
+        paragraph:
+          "Certain expenditures are not deductible under Afghan tax law. These include:\n\n1. **Gifts and Donations**: Expenditures on gifts and donations are not deductible.\n2. **Illegal Expenses**: Costs related to illegal activities.\n3. **Income Taxes**: Income taxes are not deductible.\n4. **Reserves for Contingencies**: Additions to reserves for contingencies or bad debts, except for specific financial institutions.\n5. **Personal Expenses**: Costs for personal or household use, such as:\n   - Payments for personal benefit\n   - Maintenance or improvements to personal property\n   - Interest on personal loans\n   - Commuting costs\n   - Personal insurance premiums\n\n**Example 1**: Purchasing a car for personal use cannot be deducted, even if it was bought using business income.\n\n**Example 2**: If a car dealership buys 10 cars but keeps 2 for personal use, only the cost of the 8 cars sold can be deducted:\n\n- Sales Receipts: 8 x AFN 200,000 = AFN 1,600,000\n- Cost of Purchase (excluding 2 personal cars): 8 x AFN 160,000 = AFN 1,280,000\n- Gross Profit: AFN 320,000",
+      },
+      {
+        subtitle: "Additional Notes",
+        paragraph:
+          "There are no fees payable to the Ministry of Finance for tax guides or forms. Taxpayers must submit tax returns even if no tax is due to avoid penalties. Depreciation and other deductions must be clearly documented. For more information, refer to Afghanistan Revenue Department.",
+      },
+    ],
+    image: "/blog-images/deductible-expenses.jpg",
+    guideLink: "/taxes/Guide 16 - Deductible Business Expenses.pdf",
+    author: "John Doe",
+    date: "2024-08-01",
+    keywords: [
+      "Deductible business expenses Afghanistan PDF",
+      "Deductible business expenses Afghanistan calculator",
+      "Afghanistan Tax Law PDF",
+      "Types of tax in Afghanistan",
+      "Rent tax in Afghanistan",
+      "Afghanistan tax calculator",
+      "Income Tax in Afghanistan",
+      "BRT tax",
+    ],
+  },
+  {
+    slug: "taxable-and-non-taxable-income",
+    title: "Taxable and Non-Taxable Income in Afghanistan",
+    excerpt:
+      "This guide outlines what income is taxable and what income is not taxable for residents of Afghanistan, according to the Income Tax Law 2009.",
+    content: [
+      {
+        subtitle: "Introduction",
+        paragraph:
+          "This guide outlines what income is taxable and what income is not taxable for residents of Afghanistan. For tax issues for non-residents, please see Guide 23, Tax Issues for Non-Residents. According to the Income Tax Law 2009, income tax is imposed on: • Income from Afghan sources of all natural persons and legal persons, whether resident of Afghanistan or not, and • Income from non-Afghan or foreign sources of residents of Afghanistan in accordance with the provisions of the Income Tax Law (Article 2).",
+      },
+      {
+        subtitle: "What is Taxable Income?",
+        paragraph:
+          "Taxable income is the total income of a natural or legal person, whether in cash, property, or services, minus any allowable exemptions or deductions. Exemptions are amounts that are not subject to tax by law. Deductions are amounts that can be subtracted from total income, such as allowable business expenses and other expenses of producing income. For more information concerning allowable deductions, see Guide 16, Deductible and Non-Deductible Business Expenses.",
+      },
+      {
+        subtitle: "Who is a Resident for Tax Purposes?",
+        paragraph:
+          "A natural person is considered a resident of Afghanistan in the following circumstances: • The person has his or her principal home in Afghanistan at any time during the fiscal year; or • The person is present in Afghanistan for a period or periods amounting to 183 days in the fiscal year; or • The person is an employee or official of the Government of Afghanistan assigned abroad at any time during the fiscal year. Any other entity is resident in Afghanistan for a tax year if the entity was established in Afghanistan or has the center of its administrative management in Afghanistan at any time during the year.",
+      },
+      {
+        subtitle: "Determining Principal Home",
+        paragraph:
+          "A natural person’s ‘principal home’ is determined using a ‘facts and circumstances’ test. In determining whether a natural person has a ‘principal home’ within Afghanistan, the following factors shall be taken into account: 1. Whether the person owns or rents the home in Afghanistan 2. Whether the person owns or rents a home in a different country 3. The amount of time the person spends in Afghanistan and the amount of time the natural person spends in other countries 4. The location of the person’s family 5. The length of time the person has owned his or her home in Afghanistan and the length of time that the person has owned a home in one or more other countries.",
+      },
+      {
+        subtitle: "Taxable Income",
+        paragraph:
+          "Income of natural persons: The following types of income are subject to income tax: 1. Salaries, wages, fees, and commissions 2. Income from business, industry, construction, and other economic activity 3. Income/gain from the sale of property (movable and immovable) 4. Interest, dividends, rents, royalties, awards, prizes, winnings, gratuities, bonus payments 5. Distributive shares of partnership income 6. Any other return from labor, capital, or economic activity 7. Income from other circumstances provided in the Law 8. Any other income which has not been provided in the Law.",
+      },
+      {
+        subtitle: "Salaries, Wages, Fees, and Commissions",
+        paragraph:
+          "Salaries and wages are payment for services received by an employee. In general, these amounts will be subject to withholding tax, that is, the tax withheld by an employer from salary or wage payment and paid to the government on an employee’s behalf. If your only income is from salaries or wages, taxes were correctly withheld, and you have only one job, you do not have to file an income tax return. Fees are usually paid on a per job basis, rather than on a time worked basis, such as a doctor who is an employee of a hospital being paid on a per appointment basis rather than on an hourly or daily basis. Commissions are amounts you receive in addition to or in place of your salary or wage. Commissions are usually paid as a percentage of your sales.",
+      },
+      {
+        subtitle: "Income from Business and Industry Activity",
+        paragraph:
+          "Individuals engaged in business activity, whether as an independent professional (doctor, lawyer, accountant, etc.) or a sole proprietor (individual business owner such as a shopkeeper, tailor, importer, travel agent, etc. who has not established a legal entity such as a corporation or limited liability company), are required to pay income tax on the net income from the business activity. Net income is the total income minus allowable business expenses.",
+      },
+      {
+        subtitle: "Income/Gain from the Sale of Property",
+        paragraph:
+          "The gain from the sale, exchange, or transfer of a capital asset or investment in a trade or business is income and the difference between the amount realized and the taxpayer’s cost (or cost after depreciation and related expenses of sale) of the property is income to be reported. If the difference between the amount realized and the taxpayer’s cost (after expenses) is a loss, then this also needs to be reported. The Income Tax Law also imposes a fixed tax of one percent of the sale or transfer of movable or immovable property. If the sale or transfer is made by a legal person, the fixed tax will be allowed as a credit against tax payable for annual income tax purposes. If the sale is made by an individual, the fixed tax will apply instead of annual income tax.",
+      },
+      {
+        subtitle:
+          "Interest, Dividends, Rents, Royalties, Awards, Prizes, Winnings, Gratuities, and Bonus Payments",
+        paragraph:
+          "Interest income is the gain you receive on amounts that you have lent to others. Dividends are distributions from companies that you have invested in, whether received as money or as property. Dividends are also any benefit provided to you as a shareholder, including: 1. Any tangible or intangible assets 2. Shares in the company 3. Discounts on any purchases from the company 4. Loans to shareholders 5. The use of any company property. The taxable portion of the benefit is the difference between the fair market value (its cost to the general public) and the amount paid for it. Example: ABC Corporation sells electronics equipment. Shareholders of ABC Corporation may purchase equipment directly from the company at a 40 percent discount on the retail price (fair market value). Ahmad is a shareholder and buys a piece of equipment for AFN 6,000. The fair market value of the equipment is AFN 10,000. Ahmad would have to report the benefit of AFN 4,000 as income on his tax return. Income you receive for renting property that you own is subject to income tax. The rental payments may be subject to withholding tax. See Guide 01 Withholding on Rental Services for more information. Royalties are amounts you receive for the purchase or use of items that you have produced, such as books, films, music, etc. Royalties are also subject to income tax. Prizes (whether in cash or property), winnings, gratuities, bonus payments, etc., are also subject to income tax.",
+      },
+      {
+        subtitle: "Distributive Shares of Partnership Income",
+        paragraph:
+          "If you are a partner, you will be issued a statement regarding your share of the gross income of the partnership and your share of the business’ expenses. The difference (gross income minus deductible expenses) will be your share of the profits of the partnership. You are required to include this amount in your total income on your income tax return.",
+      },
+      {
+        subtitle: "Non-Taxable Income",
+        paragraph:
+          "The following receipts are not subject to income tax and not included in returns of natural and legal persons: 1. Grants, gifts, and awards of the State 2. Grants, gifts, and awards of foreign governments, nonprofit organizations or international organizations, for contributions to science, art, literature, social progress, and international understanding 3. Scholarships, fellowships, and grants for professional and technical training 4. Health, accident, and unemployment insurance benefits 5. Life insurance paid on death 6. Compensation or damages for personal injuries or sickness or restitution of reputation 7. Proceeds of borrowing 8. Proceeds of issues of stocks and bonds by companies 9. Acquisition of property in connection with mergers of domestic corporations and other legal entities 10. Acquisition of movable or immovable property through expropriation of property of debtors by creditors 11. Payments on principal received from debtors 12. Interest on bonds issued by the State and by municipalities, and 13. Any other receipts according to the provisions of the Income Tax Law. Grants, gifts, and awards of State do not include payments made to employees for services performed in the ordinary course of duty. Grants, gifts, and awards are given in special circumstances or in recognition of unusual service. They are associated with hardship or recognition of accomplishment and are therefore non-taxable. Annual bonuses, overtime, back pay and other benefits given on a nonselective basis are taxable income of the recipient. Example 1: A family is struck by a natural disaster. This family receives AFN 5,000 as a gift from the State. This AFN 5,000 is not taxable income for any of the members of the family. Example 2: A medical doctor devotes his life to building medical clinics and providing medical services in several communities. The State honors him with a certificate and also a cash award. The cash award is exempt from taxation. Example 3: The receipt of a Nobel prize is an award of an international, nonprofit organization that is exempt from taxation. All of the money received in connection with a scholarship, fellowship, or grant for professional and technical training is exempt. This includes travel funds and living expenses, as well as reimbursement for tuition, fees, cost of books and supplies, and other miscellaneous expenses. Example: A student receives a scholarship which covers his travel, hotel bills, lodging, tuition, fees, books, medical costs, etc., plus an allowance for clothing, food, and personal expenses of AFN 5,000 per month. All of this is exempt from taxation. If the student receives a supplement from the State, this supplement is also exempt from taxation. If, however, as an employee of the State, he receives all or part of his salary from the State, this salary is subject to taxation. Payment received from an insurance company as a result of loss, misfortune, sickness, etc., for which the recipient was insured is not taxable. Example 1: An individual insured himself against sickness and injury with an insurance company to which he paid monthly premiums. He was injured in an accident which caused a disability and resulted in medical expenses. Under terms of his insurance policy he was paid AFN 10,000,000 in settlement of his claim. This payment is not taxable. Example 2: An individual is injured while working at his job. His employer carries an insurance policy which covers all his employees. The insurance company pays the injured employee AFN 10,000,000 in settlement of his claim. This receipt is exempt from taxation even though the injured employee did not pay the premium for the insurance coverage.",
+      },
+      {
+        subtitle: "Additional Information",
+        paragraph:
+          "Note: There are no fees or charges payable to the Ministry of Finance or its Revenue Department for any Tax Guides or Forms or at any stage of the tax assessment, collection, or enforcement processes. The Income Tax Law 2009 provides for a penalty if a taxpayer fails to submit a tax return. This applies even if no tax is due for the period covered by the return. To avoid being penalized, taxpayers should submit returns even if no tax is due and state on the return that none is due. A new website, [www.ard.gov.af](http://www.ard.gov.af), makes it easy for taxpayers to find and download useful information including the Income Tax Law 2009, various public announcements and rulings, forms, along with instructions for completing same, guides, archived documents, Questions & Answers regarding wage withholding tax, and other references including an Income Tax Manual.",
+      },
+    ],
+    image: "/blog-images/taxable-and-non-taxable-income.png",
+    guideLink: "/taxes/Guide 15 - Taxable and Non-Taxable Income.pdf",
+    author: "John Doe",
+    date: "2024-08-01",
+    keywords: [
+      "Taxable and non taxable income Afghanistan PDF",
+      "Taxable and non taxable income Afghanistan calculator",
+      "Taxation system in Afghanistan PDF",
+      "Afghanistan tax calculator",
+      "Taxable and non taxable income Afghanistan example",
+      "Salary tax in Afghanistan",
+      "Rent tax in Afghanistan",
+      "Withholding tax in Afghanistan",
+    ],
+  },
 ];
