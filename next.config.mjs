@@ -7,6 +7,9 @@ const pwaConfig = nextPWA({
 const nextConfig = {
   ...pwaConfig,
   output: "export",
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
