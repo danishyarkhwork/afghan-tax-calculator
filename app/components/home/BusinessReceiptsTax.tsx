@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
@@ -7,6 +9,7 @@ import {
   faExpand,
   faCompress,
   faPrint,
+  faCode,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import Skeleton from "../common/Skeleton";
@@ -17,6 +20,8 @@ const BusinessReceiptsTax: React.FC = () => {
   const [hospitalityTax, setHospitalityTax] = useState<number>(0);
   const [otherIndustriesTax, setOtherIndustriesTax] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
+  const [embedMessage, setEmbedMessage] = useState<string>("");
+  const [embedLink, setEmbedLink] = useState<string>("");
   const handle = useFullScreenHandle();
 
   const calculateTax = (amount: number, rate: number) => amount * rate;
@@ -26,6 +31,14 @@ const BusinessReceiptsTax: React.FC = () => {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setEmbedLink(
+        `<iframe src="${window.location.origin}/embed-business-receipts-tax" width="500" height="800" frameborder="0" allowfullscreen></iframe>`
+      );
+    }
   }, []);
 
   useEffect(() => {
@@ -42,14 +55,25 @@ const BusinessReceiptsTax: React.FC = () => {
   const shareUrl = "https://afghantaxcalculator.com";
   const shareText = "Check out this Afghan Tax Calculator!";
 
+  const handleEmbedCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(embedLink);
+      setEmbedMessage("Copied!");
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+      setEmbedMessage("Failed to copy embed code.");
+    }
+    setTimeout(() => setEmbedMessage(""), 3000); // Clear message after 3 seconds
+  };
+
   return (
     <FullScreen handle={handle}>
       <div className="bg-gray-100 rounded min-h-screen text-gray-900 md:p-6 p-3 lg:p-6">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 relative">
           <div className="mt-4 sm:mt-0">
             <h1 className="text-3xl font-bold">Business Receipts Tax</h1>
           </div>
-          <div className="mt-4 sm:mt-0 flex flex-row sm:flex-row sm:justify-between items-center sm:space-x-2 space-y-2 sm:space-y-0">
+          <div className="mt-4 sm:mt-0 flex flex-row sm:flex-row sm:justify-between items-center sm:space-x-2 space-y-2 sm:space-y-0 relative">
             {!handle.active && (
               <button
                 onClick={handle.enter}
@@ -75,6 +99,20 @@ const BusinessReceiptsTax: React.FC = () => {
               <FontAwesomeIcon icon={faPrint} className="mr-2" />
               Print
             </button>
+            <div className="relative">
+              <button
+                onClick={handleEmbedCopy}
+                className="inline-flex items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+              >
+                <FontAwesomeIcon icon={faCode} className="mr-2" />
+                Embed
+              </button>
+              {embedMessage && (
+                <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 text-sm text-white bg-gray-800 p-2 rounded shadow-lg">
+                  {embedMessage}
+                </div>
+              )}
+            </div>
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
                 shareUrl
