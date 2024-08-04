@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaBook, FaDownload } from "react-icons/fa";
-import Skeleton from "../components/common/Skeleton"; // Adjust the import path as necessary
-import { blogPosts } from "../data/blogPosts";
+import Skeleton from "../../components/common/Skeleton";
+import { blogPosts } from "../../data/blogPosts";
 
 const BlogPage: React.FC = () => {
   const [loading, setLoading] = useState(true);

@@ -1,4 +1,4 @@
-import { blogPosts } from "../data/blogPosts";
+import { blogPosts } from "../../data/blogPosts";
 import BlogPostContent from "./BlogPostContent";
 
 export async function generateStaticParams() {
