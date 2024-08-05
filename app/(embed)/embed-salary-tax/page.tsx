@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { NumericFormat } from "react-number-format";
-import NoHeaderLayout from "../../../components/layout/NoHeaderLayout";
+import NoHeaderLayout from "../../components/layout/NoHeaderLayout";
 
 const EmbedSalaryTax: React.FC = () => {
   const [grossSalary, setGrossSalary] = useState<number>(0);

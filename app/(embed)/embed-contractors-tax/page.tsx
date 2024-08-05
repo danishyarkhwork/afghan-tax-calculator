@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { NumericFormat } from "react-number-format";
-import NoHeaderLayout from "../../../components/layout/NoHeaderLayout";
+import NoHeaderLayout from "../../components/layout/NoHeaderLayout";
 
 const EmbedContractorsTax: React.FC = () => {
   const [annualPayments, setAnnualPayments] = useState<number>(0);

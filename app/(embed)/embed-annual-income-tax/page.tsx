@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { NumericFormat } from "react-number-format";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
-import NoHeaderLayout from "../../../components/layout/NoHeaderLayout";
+import NoHeaderLayout from "../../components/layout/NoHeaderLayout";
 
 const EmbedAnnualIncomeTax: React.FC = () => {
   const [netIncome, setNetIncome] = useState<number>(0);
