@@ -3,36 +3,9 @@
 import React, { useState, Suspense, lazy, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Metadata } from "next";
 import { FaBook, FaDownload } from "react-icons/fa";
 import Skeleton from "./components/common/Skeleton"; // Adjust the import path as necessary
 import { blogPosts } from "./data/blogPosts";
-
-export const metadata: Metadata = {
-  title: "Afghan Tax Calculator",
-  description: "Afghan Tax Calculator",
-  keywords: [
-    "Tax Calculator",
-    "Afghan Tax",
-    "Free Tax Calculator",
-    "Taxation system in Afghanistan PDF",
-    "Daily wage tax in Afghanistan",
-    "Afghanistan Tax Law",
-    "Salary tax calculator",
-    "Afghan salary calculator",
-    "Afghan Salary tax calculator",
-  ],
-  openGraph: {
-    title: "About Us",
-    description:
-      "Welcome to AfghanTaxCalculator, your trusted partner in navigating the complexities of Afghan tax regulations.",
-    type: "website",
-    url: "https://afghantaxcalculator.com/",
-  },
-  icons: {
-    icon: ".../public/icons/facvicon.ico",
-  },
-};
 
 // Lazy load components
 const SalaryTax = lazy(() => import("./components/home/SalaryTax"));
