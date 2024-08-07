@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description:
       "Welcome to AfghanTaxCalculator, your trusted partner in navigating the complexities of Afghan tax regulations.",
     type: "website",
-    url: "https://afghantaxcalculator.com/",
+    url: "https://afghantaxcalculator.com/about",
   },
   icons: {
     icon: ".../public/icons/facvicon.ico",
