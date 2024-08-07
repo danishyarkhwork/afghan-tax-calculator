@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "https://afghantaxcalculator.com/about",
   },
   icons: {
-    icon: ".../public/icons/facvicon.ico",
+    icon: ".../public/icons/favicon.ico",
   },
 };
 
