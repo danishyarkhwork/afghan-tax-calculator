@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description:
       "Welcome to AfghanTaxCalculator, your trusted partner in navigating the complexities of Afghan tax regulations.",
     type: "website",
-    url: "https://afghantaxcalculator.com/about",
+    url: "https://afghantaxcalculator.com/about/",
   },
   icons: {
     icon: ".../public/icons/favicon.ico",
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
 const AboutPage: React.FC = () => {
   return (
     <div className="bg-teal-700 min-h-screen text-white">
-      <main className="container mx-auto p-6 max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+      <main className="container mx-auto p-6 max-w-6xl">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
           About Us - Free Online Afghan Tax Calculator
         </h2>
 

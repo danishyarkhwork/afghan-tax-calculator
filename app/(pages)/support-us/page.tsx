@@ -3,8 +3,8 @@ import React from "react";
 const SupportPage: React.FC = () => {
   return (
     <div className="bg-teal-700 min-h-screen text-white">
-      <main className="container mx-auto p-6 max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+      <main className="container mx-auto p-6 max-w-6xl">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Support Us - Afghan Tax Calculator
         </h2>
 
