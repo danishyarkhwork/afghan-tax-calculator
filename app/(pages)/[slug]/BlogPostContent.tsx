@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { FaBook, FaDownload } from "react-icons/fa";
+import Link from "next/link";
 
 interface BlogPost {
   slug: string;
@@ -104,19 +105,31 @@ const BlogPostContent: React.FC<BlogPostContentProps> = ({ post }) => {
                 </time>
               </p>
               <div className="flex justify-center gap-4 mb-5">
-                <a
-                  href={post.guideLink}
+                {post.guideLink ? (
+                  <a
+                    href={post.guideLink}
+                    className="bg-teal-500 text-white py-2 px-4 rounded flex items-center text-sm hover:bg-teal-400 transition-colors"
+                    download
+                  >
+                    <FaDownload className="mr-2" />
+                    Download Guidelines
+                  </a>
+                ) : (
+                  <span className="text-gray-500 flex items-center">
+                    <FaDownload className="mr-2" />
+                    Download Unavailable
+                  </span>
+                )}
+
+                <Link
+                  href="/"
                   className="bg-teal-500 text-white py-2 px-4 rounded flex items-center text-sm hover:bg-teal-400 transition-colors"
-                  download
                 >
-                  <FaDownload className="mr-2" /> Download Guidelines
-                </a>
-                <a
-                  href="https://afghantaxcalculator.com/"
-                  className="bg-teal-500 text-white py-2 px-4 rounded flex items-center text-sm hover:bg-teal-400 transition-colors"
-                >
-                  <FaBook className="mr-2" /> Calculate Tax
-                </a>
+                  <div className="flex items-center">
+                    <FaBook className="mr-2" />
+                    Calculate Tax
+                  </div>
+                </Link>
               </div>
             </footer>
           </article>

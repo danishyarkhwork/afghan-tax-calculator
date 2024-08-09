@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FaBook, FaDownload } from "react-icons/fa";
 import Skeleton from "./components/common/Skeleton"; // Adjust the import path as necessary
 import { blogPosts } from "./data/blogPosts";
+import TaxCalculatorLoader from "./components/common/Loader"; // Adjust the import path as necessary
 
 // Lazy load components
 const SalaryTax = lazy(() => import("./components/home/SalaryTax"));
@@ -19,6 +20,7 @@ const AnnualIncomeTax = lazy(() => import("./components/home/AnnualIncomeTax"));
 const HomePage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("salary");
   const [loading, setLoading] = useState(true);
+  const [tabLoading, setTabLoading] = useState(false); // New state for tab loading
 
   useEffect(() => {
     // Simulate a delay for loading blog posts
@@ -26,35 +28,47 @@ const HomePage: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleTabChange = (tab: string) => {
+    setTabLoading(true); // Start tab loading
+    setActiveTab(tab);
+    setTimeout(() => {
+      setTabLoading(false); // Stop tab loading after a short delay
+    }, 500); // You can adjust the delay time as needed
+  };
+
   const renderActiveTab = () => {
+    if (tabLoading) {
+      return <TaxCalculatorLoader />; // Show loader when tab is loading
+    }
+
     switch (activeTab) {
       case "salary":
         return (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<TaxCalculatorLoader />}>
             <SalaryTax />
           </Suspense>
         );
       case "rental":
         return (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<TaxCalculatorLoader />}>
             <RentalTax />
           </Suspense>
         );
       case "contractors":
         return (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<TaxCalculatorLoader />}>
             <ContractorsTax />
           </Suspense>
         );
       case "business":
         return (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<TaxCalculatorLoader />}>
             <BusinessReceiptsTax />
           </Suspense>
         );
       case "annual":
         return (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<TaxCalculatorLoader />}>
             <AnnualIncomeTax />
           </Suspense>
         );
@@ -83,8 +97,8 @@ const HomePage: React.FC = () => {
             (tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`flex items-center px-4 py-2 md:text-xl mb-2 md:mb-0 border-b-2 ${
+                onClick={() => handleTabChange(tab)}
+                className={`flex items-center px-4 py-2 md:text-lg mb-2 md:mb-0 border-b-2 ${
                   activeTab === tab ? "border-teal-300" : "border-transparent"
                 } hover:border-teal-300 transition duration-300`}
               >
