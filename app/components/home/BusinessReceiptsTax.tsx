@@ -36,7 +36,7 @@ const BusinessReceiptsTax: React.FC = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       setEmbedLink(
-        `<iframe src="${window.location.origin}/embed-business-receipts-tax" width="500" height="800" frameborder="0" allowfullscreen></iframe>`
+        `<iframe src="${window.location.origin}/embed-business-receipts-tax/" width="500" height="800" frameborder="0" allowfullscreen></iframe>`
       );
     }
   }, []);

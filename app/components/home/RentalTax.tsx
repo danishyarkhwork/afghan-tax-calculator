@@ -30,7 +30,7 @@ const RentalTax: React.FC = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       setEmbedLink(
-        `<iframe src="${window.location.origin}/embed-rental-tax" width="500" height="800" frameborder="0" allowfullscreen></iframe>`
+        `<iframe src="${window.location.origin}/embed-rental-tax/" width="500" height="800" frameborder="0" allowfullscreen></iframe>`
       );
     }
   }, []);
