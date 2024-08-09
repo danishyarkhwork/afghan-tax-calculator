@@ -10,7 +10,6 @@ const pwaConfig = nextPWA({
 const nextConfig = {
   ...pwaConfig,
   trailingSlash: true,
-  output: "export",
   images: {
     unoptimized: true,
   },

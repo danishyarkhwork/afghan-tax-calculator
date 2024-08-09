@@ -1,3 +1,5 @@
+// pages/404.tsx
+
 import Link from "next/link";
 import { FC } from "react";
 
@@ -11,9 +13,9 @@ const NotFound: FC = () => {
           Sorry, the page you’re looking for doesn’t exist.
         </p>
         <Link href="/">
-          <span className="px-4 py-2 text-white bg-blue-500 rounded cursor-pointer hover:bg-blue-600">
+          <a className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">
             Go back to Home
-          </span>
+          </a>
         </Link>
       </div>
     </div>
