@@ -70,9 +70,9 @@ const Footer: React.FC = () => {
               </a>
             </p>
             <p className="text-sm">
-              Phone:{" "}
+              WhatsApp:{" "}
               <a
-                href="tel:+93703325036"
+                href="https://wa.me/+93703325036"
                 className="text-teal-400 hover:text-teal-300"
               >
                 +93 70 332 5036

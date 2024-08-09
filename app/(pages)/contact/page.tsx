@@ -33,9 +33,9 @@ const ContactPage: React.FC = () => {
           <div className="flex items-center space-x-3">
             <FaPhoneAlt className="text-2xl text-teal-300" />
             <div>
-              <h3 className="text-lg font-semibold">Phone</h3>
+              <h3 className="text-lg font-semibold">WhatsApp</h3>
               <a
-                href="tel:+93703325036"
+                href="https://wa.me/+93703325036"
                 className="text-sm text-teal-200 hover:text-teal-100"
               >
                 +93 70 332 5036
