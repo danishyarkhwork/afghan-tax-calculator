@@ -26,6 +26,13 @@ const Footer: React.FC = () => {
             <h3 className="font-bold text-lg mb-2">Quick Links</h3>
             <ul className="space-y-2">
               <li>
+                <Link href="/about/">
+                  <span className="text-sm text-teal-400 hover:text-teal-300 cursor-pointer">
+                    About Us
+                  </span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy-policy/">
                   <span className="text-sm text-teal-400 hover:text-teal-300 cursor-pointer">
                     Privacy Policy
@@ -40,16 +47,9 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/contact-us/">
+                <Link href="/contact/">
                   <span className="text-sm text-teal-400 hover:text-teal-300 cursor-pointer">
                     Contact Us
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/about/">
-                  <span className="text-sm text-teal-400 hover:text-teal-300 cursor-pointer">
-                    About Us
                   </span>
                 </Link>
               </li>
@@ -72,10 +72,10 @@ const Footer: React.FC = () => {
             <p className="text-sm">
               Phone:{" "}
               <a
-                href="tel:+123456789"
+                href="tel:+93703325036"
                 className="text-teal-400 hover:text-teal-300"
               >
-                +1 (234) 567-89
+                +93 70 332 5036
               </a>
             </p>
           </div>
