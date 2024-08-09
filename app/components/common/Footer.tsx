@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
           {/* About the Company */}
           <div>
             <h3 className="font-bold text-lg mb-2">About Us</h3>
-            <p className="text-sm">
+            <p className="text-sm  leading-6">
               Afghan Tax Converter simplifies tax calculations for Afghan
               taxpayers, covering Salary Tax, Rental Tax, Contractors Tax,
               Business Tax, and Annual Tax, ensuring compliance with tax laws
@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
           {/* Quick Links */}
           <div>
             <h3 className="font-bold text-lg mb-2">Quick Links</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               <li>
                 <Link href="/about/">
                   <span className="text-sm text-teal-400 hover:text-teal-300 cursor-pointer">
@@ -57,8 +57,8 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Contact Information */}
-          <div>
-            <h3 className="font-bold text-lg mb-2">Contact Us</h3>
+          <div className="space-y-3">
+            <h3 className="font-bold text-lg mb-1">Contact Us</h3>
             <p className="text-sm">Address: Kabul, Afghanistan</p>
             <p className="text-sm">
               Email:{" "}
