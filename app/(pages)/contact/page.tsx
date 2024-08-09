@@ -5,23 +5,23 @@ import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="bg-teal-700 min-h-screen text-white">
-      <main className="container mx-auto pt-10 max-w-4xl">
+    <div className="bg-teal-700 min-h-screen text-white flex flex-col items-center py-10 px-4 md:px-0">
+      <main className="w-full max-w-4xl">
         <h2 className="text-4xl font-bold mb-8 text-center">Contact Us</h2>
 
-        {/* Contact Details in a Single Row */}
-        <div className="flex flex-col md:flex-row justify-around items-center mb-12 space-y-6 md:space-y-0 md:space-x-6">
-          <div className="flex items-center">
-            <FaMapMarkerAlt className="text-2xl text-teal-300 mr-3" />
+        {/* Contact Details in a Responsive Grid */}
+        <div className="grid grid-cols-1 px-16 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="flex items-center space-x-3">
+            <FaMapMarkerAlt className="text-2xl text-teal-300" />
             <div>
-              <h3 className="text-xl font-semibold">Address</h3>
+              <h3 className="text-lg font-semibold">Address</h3>
               <p className="text-sm">Kabul, Afghanistan</p>
             </div>
           </div>
-          <div className="flex items-center">
-            <FaEnvelope className="text-2xl text-teal-300 mr-3" />
+          <div className="flex items-center space-x-3">
+            <FaEnvelope className="text-2xl text-teal-300" />
             <div>
-              <h3 className="text-xl font-semibold">Email</h3>
+              <h3 className="text-lg font-semibold">Email</h3>
               <a
                 href="mailto:support@afghantaxcalculator.com"
                 className="text-sm text-teal-200 hover:text-teal-100"
@@ -30,10 +30,10 @@ const ContactPage: React.FC = () => {
               </a>
             </div>
           </div>
-          <div className="flex items-center">
-            <FaPhoneAlt className="text-2xl text-teal-300 mr-3" />
+          <div className="flex items-center space-x-3">
+            <FaPhoneAlt className="text-2xl text-teal-300" />
             <div>
-              <h3 className="text-xl font-semibold">Phone</h3>
+              <h3 className="text-lg font-semibold">Phone</h3>
               <a
                 href="tel:+93703325036"
                 className="text-sm text-teal-200 hover:text-teal-100"
