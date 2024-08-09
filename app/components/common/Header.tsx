@@ -115,7 +115,7 @@ const Header: React.FC = () => {
           )}
           {isPWA && isAppInstalled && (
             <button
-              onClick={() => window.open("/support-us", "_self")}
+              onClick={() => window.open("/support-us/", "_self")}
               className="bg-teal-700 md:hidden lg:hidden animate-pulse text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
             >
               DONATE
@@ -159,19 +159,24 @@ const Header: React.FC = () => {
               </li>
               <li>
                 <button
-                  onClick={() => handleNavigation("/about")}
+                  onClick={() => handleNavigation("/about/")}
                   className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
-                    isActive("/about") ? "border-b-2 border-teal-300" : ""
+                    isActive("/about/") || isActive("/about")
+                      ? "border-b-2 border-teal-300"
+                      : ""
                   }`}
+                  aria-label="Navigate to About Us page"
                 >
                   About Us
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => handleNavigation("/blog")}
+                  onClick={() => handleNavigation("/blog/")}
                   className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
-                    isActive("/blog") ? "border-b-2 border-teal-300" : ""
+                    isActive("/blog") || isActive("/blog/")
+                      ? "border-b-2 border-teal-300"
+                      : ""
                   }`}
                 >
                   Blog
@@ -179,9 +184,11 @@ const Header: React.FC = () => {
               </li>
               <li>
                 <button
-                  onClick={() => handleNavigation("/support-us")}
+                  onClick={() => handleNavigation("/support-us/")}
                   className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
-                    isActive("/support-us") ? "border-b-2 border-teal-300" : ""
+                    isActive("/support-us") || isActive("/support-us/")
+                      ? "border-b-2 border-teal-300"
+                      : ""
                   }`}
                 >
                   Support Us
@@ -189,9 +196,11 @@ const Header: React.FC = () => {
               </li>
               <li>
                 <button
-                  onClick={() => handleNavigation("/how-to-use")}
+                  onClick={() => handleNavigation("/how-to-use/")}
                   className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
-                    isActive("/how-to-use") ? "border-b-2 border-teal-300" : ""
+                    isActive("/how-to-use") || isActive("/how-to-use/")
+                      ? "border-b-2 border-teal-300"
+                      : ""
                   }`}
                 >
                   How to Use?
@@ -214,7 +223,7 @@ const Header: React.FC = () => {
 
           {isPWA && isAppInstalled && (
             <button
-              onClick={() => window.open("/support-us", "_self")}
+              onClick={() => window.open("/support-us/", "_self")}
               className="hidden md:block animate-pulse bg-teal-700 text-white py-1 px-4 mr-1 rounded hover:bg-teal-600 transition duration-300"
             >
               DONATE
@@ -244,9 +253,11 @@ const Header: React.FC = () => {
                   </li>
                   <li>
                     <button
-                      onClick={() => handleNavigation("/about")}
+                      onClick={() => handleNavigation("/about/")}
                       className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
-                        isActive("/about") ? "border-b-2 border-teal-300" : ""
+                        isActive("/about") || isActive("/about/")
+                          ? "border-b-2 border-teal-300"
+                          : ""
                       }`}
                     >
                       About Us
@@ -254,9 +265,11 @@ const Header: React.FC = () => {
                   </li>
                   <li>
                     <button
-                      onClick={() => handleNavigation("/blog")}
+                      onClick={() => handleNavigation("/blog/")}
                       className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
-                        isActive("/blog") ? "border-b-2 border-teal-300" : ""
+                        isActive("/blog") || isActive("/blog/")
+                          ? "border-b-2 border-teal-300"
+                          : ""
                       }`}
                     >
                       Blog
@@ -264,9 +277,9 @@ const Header: React.FC = () => {
                   </li>
                   <li>
                     <button
-                      onClick={() => handleNavigation("/support-us")}
+                      onClick={() => handleNavigation("/support-us/")}
                       className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
-                        isActive("/support-us")
+                        isActive("/support-us") || isActive("/support-us/")
                           ? "border-b-2 border-teal-300"
                           : ""
                       }`}
@@ -276,9 +289,9 @@ const Header: React.FC = () => {
                   </li>
                   <li>
                     <button
-                      onClick={() => handleNavigation("/how-to-use")}
+                      onClick={() => handleNavigation("/how-to-use/")}
                       className={`text-white hover:text-teal-300 py-1 px-4 transition duration-300 ${
-                        isActive("/how-to-use")
+                        isActive("/how-to-use") || isActive("/how-to-use/")
                           ? "border-b-2 border-teal-300"
                           : ""
                       }`}
