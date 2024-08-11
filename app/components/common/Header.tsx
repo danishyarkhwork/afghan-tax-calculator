@@ -108,7 +108,7 @@ const Header: React.FC = () => {
           {!isPWA && !isAppInstalled && showInstallButton && (
             <button
               onClick={handleInstallClick}
-              className="bg-teal-700 md:hidden lg:hidden animate-bounce text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
+              className="bg-teal-700 md:hidden text-sm lg:hidden animate-bounce text-white py-1 px-2 rounded hover:bg-teal-600 transition duration-300"
             >
               INSTALL APP
             </button>
@@ -207,7 +207,7 @@ const Header: React.FC = () => {
               onClick={handleInstallClick}
               className="hidden md:block animate-bounce bg-teal-700 text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
             >
-              INSTALL
+              INSTALL APP
             </button>
           )}
 
