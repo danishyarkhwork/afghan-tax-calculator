@@ -2,7 +2,7 @@ import React from "react";
 
 const TermsAndConditionsPage: React.FC = () => {
   return (
-    <div className="bg-teal-700 min-h-screen text-white">
+    <div className="bg-slate-200 min-h-full text-gray-900">
       <main className="container mx-auto p-6 max-w-6xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Terms and Conditions

@@ -79,7 +79,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="bg-teal-700 min-h-full text-white">
+    <div className="bg-slate-200 min-h-full text-gray-900">
       <main className="container mx-auto px-4 max-w-6xl pt-5 md:pt-8 lg:pt-8 pb-10">
         <h2 className="text-2xl justify-center hidden md:flex md:text-4xl font-bold mb-2 md:mb-5 text-center">
           Free Online Afghan Tax Calculator
@@ -106,7 +106,7 @@ const HomePage: React.FC = () => {
                   : activeTab === "rental"
                   ? "🏠"
                   : activeTab === "contractors"
-                  ? "🔨"
+                  ? "👷🏻"
                   : activeTab === "business"
                   ? "📈"
                   : "📅"}
@@ -139,7 +139,7 @@ const HomePage: React.FC = () => {
                         : tab === "rental"
                         ? "🏠"
                         : tab === "contractors"
-                        ? "🔨"
+                        ? "👷🏻"
                         : tab === "business"
                         ? "📈"
                         : "📅"}
@@ -169,7 +169,7 @@ const HomePage: React.FC = () => {
                     : tab === "rental"
                     ? "🏠"
                     : tab === "contractors"
-                    ? "🔨"
+                    ? "👷🏻"
                     : tab === "business"
                     ? "📈"
                     : "📅"}
@@ -212,7 +212,7 @@ const HomePage: React.FC = () => {
               {blogPosts.slice(0, 3).map((post) => (
                 <div
                   key={post.slug}
-                  className="bg-teal-800 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                  className="bg-teal-800 p-6 text-slate-100 rounded-lg shadow-lg transition-transform transform hover:scale-105"
                 >
                   <Link href={`/${post.slug}`}>
                     <Image

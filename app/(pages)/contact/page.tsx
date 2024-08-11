@@ -5,7 +5,7 @@ import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="bg-teal-700 min-h-screen text-white flex flex-col items-center py-10 px-4 md:px-0">
+    <div className="bg-slate-200 min-h-full text-gray-900 flex flex-col items-center py-10 px-4 md:px-0">
       <main className="w-full max-w-4xl">
         <h2 className="text-4xl font-bold mb-8 text-center">Contact Us</h2>
 

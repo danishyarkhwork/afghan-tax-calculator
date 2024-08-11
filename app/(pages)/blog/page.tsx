@@ -17,7 +17,7 @@ const BlogPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-teal-700 min-h-screen text-white">
+    <div className="bg-slate-200 min-h-full text-gray-900">
       <main className="container mx-auto p-4 max-w-6xl py-10">
         <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center md:text-left">
           Tax Guidelines of Afghanistan
@@ -41,7 +41,7 @@ const BlogPage: React.FC = () => {
             {blogPosts.map((post) => (
               <div
                 key={post.slug}
-                className="bg-teal-800 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                className="bg-teal-800 p-6 rounded-lg text-slate-100 shadow-lg transition-transform transform hover:scale-105"
               >
                 <Link href={`/${post.slug}`}>
                   <Image
