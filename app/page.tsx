@@ -79,12 +79,12 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="bg-teal-700 min-h-full text-white">
-      <main className="container mx-auto px-4 max-w-6xl py-10">
-        <h2 className="text-2xl md:text-4xl font-bold mb-2 text-center md:text-center">
-          Welcome to Free Online Afghan Tax Calculator
+      <main className="container mx-auto px-4 max-w-6xl pt-5 md:pt-8 lg:pt-8 pb-10">
+        <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-5 lg:mb-5 text-center md:text-center">
+          Free Online Afghan Tax Calculator
         </h2>
 
-        <p className="text-lg text-center">
+        <p className="hidden md:flex lg:flex text-lg text-center md:mb-4 lg:mb-4">
           AfghanTaxCalculator is a free online tool designed to simplify tax
           calculations for Afghan taxpayers, covering salary tax, rental tax,
           contractors tax, business receipts tax, and annual income tax. Users
@@ -92,13 +92,13 @@ const HomePage: React.FC = () => {
           ensuring compliance with Afghan tax laws and avoiding penalties.
         </p>
 
-        <div className="flex flex-wrap justify-center md:justify-center space-x-0 md:space-x-4 mb-6 mt-5">
+        <div className="flex flex-wrap justify-center md:justify-center space-x-0 md:space-x-4 md:mb-4 lg:mb-4 mb-2 mt-2">
           {["salary", "rental", "contractors", "business", "annual"].map(
             (tab) => (
               <button
                 key={tab}
                 onClick={() => handleTabChange(tab)}
-                className={`flex items-center px-4 py-2 md:text-lg mb-2 md:mb-0 border-b-2 ${
+                className={`flex items-center px-2 py-2 md:text-lg mb-2 md:mb-0 border-b-2 ${
                   activeTab === tab ? "border-teal-300" : "border-transparent"
                 } hover:border-teal-300 transition duration-300`}
               >
@@ -113,7 +113,8 @@ const HomePage: React.FC = () => {
                     ? "📈"
                     : "📅"}
                 </span>{" "}
-                {tab.charAt(0).toUpperCase() + tab.slice(1)} Tax
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}{" "}
+                <span className="hidden md:flex lg:flex ml-1">Tax</span>
               </button>
             )
           )}

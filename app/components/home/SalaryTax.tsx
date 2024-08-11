@@ -115,7 +115,7 @@ const SalaryTax: React.FC = () => {
       <div className="bg-gray-100 rounded min-h-screen text-gray-900 md:p-6 p-3 lg:p-6">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 relative">
           <div className="mt-4 sm:mt-0">
-            <h1 className="text-3xl font-bold">Salary Tax</h1>
+            <h1 className="text-3xl font-bold">Salary</h1>
           </div>
           <div className="mt-4 sm:mt-0 flex flex-row sm:flex-row sm:justify-between items-center sm:space-x-2 space-y-2 sm:space-y-0 relative">
             {!handle.active && (

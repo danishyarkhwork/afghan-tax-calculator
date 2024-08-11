@@ -215,18 +215,7 @@ const Header: React.FC = () => {
               onClick={handleInstallClick}
               className="hidden md:block animate-bounce bg-teal-700 text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
             >
-              INSTALL APP
-            </button>
-          )}
-
-          {/* Show "OPEN APP" button on larger devices if installed */}
-
-          {isPWA && isAppInstalled && (
-            <button
-              onClick={() => window.open("/support-us/", "_self")}
-              className="hidden md:block animate-pulse bg-teal-700 text-white py-1 px-4 mr-1 rounded hover:bg-teal-600 transition duration-300"
-            >
-              DONATE
+              INSTALL
             </button>
           )}
 
