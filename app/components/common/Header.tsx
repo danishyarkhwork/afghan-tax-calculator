@@ -113,14 +113,6 @@ const Header: React.FC = () => {
               INSTALL APP
             </button>
           )}
-          {isPWA && isAppInstalled && (
-            <button
-              onClick={() => window.open("/support-us/", "_self")}
-              className="bg-teal-700 md:hidden lg:hidden animate-pulse text-white py-1 px-4 rounded hover:bg-teal-600 transition duration-300"
-            >
-              DONATE
-            </button>
-          )}
 
           {/* Mobile Menu Toggle */}
           <button
