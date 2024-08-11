@@ -3,7 +3,7 @@
 import React, { useState, Suspense, lazy, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaBook, FaDownload } from "react-icons/fa";
+import { FaBook, FaDownload, FaChevronDown } from "react-icons/fa";
 import Skeleton from "./components/common/Skeleton"; // Adjust the import path as necessary
 import { blogPosts } from "./data/blogPosts";
 import TaxCalculatorLoader from "./components/common/Loader"; // Adjust the import path as necessary
@@ -20,7 +20,8 @@ const AnnualIncomeTax = lazy(() => import("./components/home/AnnualIncomeTax"));
 const HomePage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("salary");
   const [loading, setLoading] = useState(true);
-  const [tabLoading, setTabLoading] = useState(false); // New state for tab loading
+  const [tabLoading, setTabLoading] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     // Simulate a delay for loading blog posts
@@ -29,16 +30,16 @@ const HomePage: React.FC = () => {
   }, []);
 
   const handleTabChange = (tab: string) => {
-    setTabLoading(true); // Start tab loading
+    setTabLoading(true);
     setActiveTab(tab);
     setTimeout(() => {
-      setTabLoading(false); // Stop tab loading after a short delay
-    }, 500); // You can adjust the delay time as needed
+      setTabLoading(false);
+    }, 500);
   };
 
   const renderActiveTab = () => {
     if (tabLoading) {
-      return <TaxCalculatorLoader />; // Show loader when tab is loading
+      return <TaxCalculatorLoader />;
     }
 
     switch (activeTab) {
@@ -80,7 +81,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="bg-teal-700 min-h-full text-white">
       <main className="container mx-auto px-4 max-w-6xl pt-5 md:pt-8 lg:pt-8 pb-10">
-        <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-5 lg:mb-5 text-center md:text-center">
+        <h2 className="text-2xl justify-center hidden md:flex md:text-4xl font-bold mb-2 md:mb-5 text-center">
           Free Online Afghan Tax Calculator
         </h2>
 
@@ -92,7 +93,67 @@ const HomePage: React.FC = () => {
           ensuring compliance with Afghan tax laws and avoiding penalties.
         </p>
 
-        <div className="flex flex-wrap justify-center md:justify-center space-x-0 md:space-x-4 md:mb-4 lg:mb-4 mb-2 mt-2">
+        {/* Dropdown for mobile */}
+        <div className="md:hidden mb-4">
+          <button
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+            className="flex justify-between items-center w-full bg-white text-teal-700 px-4 py-2 rounded shadow-md"
+          >
+            <span className="flex items-center">
+              <span role="img" aria-label={activeTab} className="mr-2">
+                {activeTab === "salary"
+                  ? "💼"
+                  : activeTab === "rental"
+                  ? "🏠"
+                  : activeTab === "contractors"
+                  ? "🔨"
+                  : activeTab === "business"
+                  ? "📈"
+                  : "📅"}
+              </span>
+              {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Tax
+            </span>
+            <FaChevronDown
+              className={`transform transition-transform duration-200 ${
+                dropdownOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+          {dropdownOpen && (
+            <div className="flex flex-col mt-2 space-y-2 bg-white p-2 rounded shadow-lg">
+              {["salary", "rental", "contractors", "business", "annual"].map(
+                (tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => {
+                      handleTabChange(tab);
+                      setDropdownOpen(false);
+                    }}
+                    className={`flex items-center px-4 py-2 text-left text-teal-700 ${
+                      activeTab === tab ? "bg-teal-100" : "bg-white"
+                    } hover:bg-teal-100 transition duration-300 rounded`}
+                  >
+                    <span role="img" aria-label={tab} className="mr-2">
+                      {tab === "salary"
+                        ? "💼"
+                        : tab === "rental"
+                        ? "🏠"
+                        : tab === "contractors"
+                        ? "🔨"
+                        : tab === "business"
+                        ? "📈"
+                        : "📅"}
+                    </span>
+                    {tab.charAt(0).toUpperCase() + tab.slice(1)} Tax
+                  </button>
+                )
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Tab buttons for larger screens */}
+        <div className="hidden md:flex flex-wrap justify-center space-x-0 md:space-x-4 md:mb-4 lg:mb-4 mb-2 mt-2">
           {["salary", "rental", "contractors", "business", "annual"].map(
             (tab) => (
               <button
@@ -112,8 +173,8 @@ const HomePage: React.FC = () => {
                     : tab === "business"
                     ? "📈"
                     : "📅"}
-                </span>{" "}
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}{" "}
+                </span>
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
                 <span className="hidden md:flex lg:flex ml-1">Tax</span>
               </button>
             )

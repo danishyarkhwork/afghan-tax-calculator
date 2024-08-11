@@ -115,13 +115,13 @@ const SalaryTax: React.FC = () => {
       <div className="bg-gray-100 rounded min-h-screen text-gray-900 md:p-6 p-3 lg:p-6">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 relative">
           <div className="mt-4 sm:mt-0">
-            <h1 className="text-3xl font-bold">Salary</h1>
+            <h1 className="text-3xl font-bold">Salary Tax</h1>
           </div>
           <div className="mt-4 sm:mt-0 flex flex-row sm:flex-row sm:justify-between items-center sm:space-x-2 space-y-2 sm:space-y-0 relative">
             {!handle.active && (
               <button
                 onClick={handle.enter}
-                className="inline-flex items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex items-center mt-2 sm:mt-0 px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 <FontAwesomeIcon icon={faExpand} className="mr-2" />
                 Full Screen
@@ -130,7 +130,7 @@ const SalaryTax: React.FC = () => {
             {handle.active && (
               <button
                 onClick={handle.exit}
-                className="inline-flex items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex mt-2 sm:mt-0 items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 <FontAwesomeIcon icon={faCompress} className="mr-2" />
                 Exit Full Screen
@@ -203,9 +203,9 @@ const SalaryTax: React.FC = () => {
                 <div className="mb-4">
                   <label
                     htmlFor="grossSalary"
-                    className="block text-xl font-semibold text-gray-700 mb-4"
+                    className="block text-lg md:text-xl lg:text-xl font-semibold text-gray-700 mb-4"
                   >
-                    What is the total monthly salary (gross salary)?
+                    Total monthly salary (gross salary)?
                   </label>
                   <NumericFormat
                     thousandSeparator={true}
@@ -266,7 +266,7 @@ const SalaryTax: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-4">
-                  A Summary of Salary Withholding Tax
+                  Summary of Salary Withholding Tax
                 </h3>
                 <table className="w-full table-auto mb-4">
                   <thead>

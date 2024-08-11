@@ -75,7 +75,7 @@ const ContractorsTax: React.FC = () => {
             {!handle.active && (
               <button
                 onClick={handle.enter}
-                className="inline-flex items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex mt-2 sm:mt-0 items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 <FontAwesomeIcon icon={faExpand} className="mr-2" />
                 Full Screen
@@ -84,7 +84,7 @@ const ContractorsTax: React.FC = () => {
             {handle.active && (
               <button
                 onClick={handle.exit}
-                className="inline-flex items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex mt-2 sm:mt-0 items-center px-3 py-2 border ml-1 border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-800 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 <FontAwesomeIcon icon={faCompress} className="mr-2" />
                 Exit Full Screen
