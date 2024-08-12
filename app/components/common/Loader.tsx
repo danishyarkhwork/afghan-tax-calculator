@@ -2,11 +2,12 @@ import React from "react";
 
 const TaxCalculatorLoader: React.FC = () => {
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center bg-teal-700 bg-opacity-90 z-50">
-      <div className="flex items-center flex-col space-y-4">
+    <div className="fixed inset-0 flex items-center justify-center bg-transparent z-50">
+      <div className="absolute inset-0 bg-white bg-opacity-60 backdrop-blur-lg"></div>
+      <div className="relative flex flex-col items-center space-y-4">
         {/* Calculator Icon */}
         <svg
-          className="w-20 h-20 text-teal-300 animate-bounce"
+          className="w-20 h-20 text-gray-800 animate-bounce"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -27,22 +28,23 @@ const TaxCalculatorLoader: React.FC = () => {
         </svg>
 
         {/* Text "Afghan Tax Calculator" */}
-        <div className="text-2xl font-bold text-teal-300">
+        <div className="text-2xl font-bold text-gray-800">
           Afghan Tax Calculator
         </div>
 
         {/* Loading Dots Animation */}
-        <div className="flex space-x-1 text-teal-200">
-          <span className="text-2xl font-mono animate-pulse">L</span>
-          <span className="text-2xl font-mono animate-pulse delay-150">o</span>
-          <span className="text-2xl font-mono animate-pulse delay-300">a</span>
-          <span className="text-2xl font-mono animate-pulse delay-450">d</span>
-          <span className="text-2xl font-mono animate-pulse delay-600">i</span>
-          <span className="text-2xl font-mono animate-pulse delay-750">n</span>
-          <span className="text-2xl font-mono animate-pulse delay-900">g</span>
-          <span className="text-2xl font-mono animate-pulse delay-1050">.</span>
-          <span className="text-2xl font-mono animate-pulse delay-1200">.</span>
-          <span className="text-2xl font-mono animate-pulse delay-1350">.</span>
+        <div className="flex space-x-1 text-gray-800">
+          {["L", "o", "a", "d", "i", "n", "g", ".", ".", "."].map(
+            (char, index) => (
+              <span
+                key={index}
+                className={`text-2xl font-mono animate-pulse`}
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                {char}
+              </span>
+            )
+          )}
         </div>
       </div>
     </div>

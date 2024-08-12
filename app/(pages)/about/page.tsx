@@ -20,9 +20,9 @@ export const metadata: Metadata = {
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="bg-slate-200 min-h-full text-gray-900">
+    <div className="bg-slate-100 min-h-screen text-gray-900">
       <main className="container mx-auto p-6 max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">
           About Us - Free Online Afghan Tax Calculator
         </h2>
 
@@ -35,7 +35,7 @@ const AboutPage: React.FC = () => {
           compliant with Afghan tax laws without the stress.
         </p>
 
-        <h3 className="text-2xl font-semibold mb-4">What We Do</h3>
+        <h3 className="text-2xl font-semibold mb-4 text-black">What We Do</h3>
         <p className="mb-6 text-lg leading-relaxed">
           At AfghanTaxCalculator, we understand the challenges of managing
           taxes, whether you're an individual taxpayer or a business owner.
@@ -46,58 +46,57 @@ const AboutPage: React.FC = () => {
           providing precise computations for a variety of tax types.
         </p>
 
-        <h3 className="text-2xl font-semibold mb-4">Our Key Features</h3>
+        <h3 className="text-2xl font-semibold mb-4 text-black">
+          Our Key Features
+        </h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-teal-800 p-6 rounded-lg shadow-lg hover:bg-teal-700 transition duration-300 ease-in-out">
-            <h4 className="text-xl font-semibold mb-3">💼 Salary Tax</h4>
-            <p>
-              Effortlessly calculate your salary tax with our intuitive tool.
-              Input your income details, and our system will generate accurate
-              salary tax computations, helping you understand your tax
-              obligations and avoid any unexpected liabilities.
-            </p>
-          </div>
-          <div className="bg-teal-800 p-6 rounded-lg shadow-lg hover:bg-teal-700 transition duration-300 ease-in-out">
-            <h4 className="text-xl font-semibold mb-3">🏠 Rental Tax</h4>
-            <p>
-              If you earn income from rental properties, our calculator
-              simplifies the rental tax process. Enter your rental income and
-              expenses, and receive a clear breakdown of the taxes you need to
-              pay.
-            </p>
-          </div>
-          <div className="bg-teal-800 p-6 rounded-lg shadow-lg hover:bg-teal-700 transition duration-300 ease-in-out">
-            <h4 className="text-xl font-semibold mb-3">🔨 Contractors Tax</h4>
-            <p>
-              Contractors can benefit from our specialized tax calculator
-              designed to handle the unique aspects of contractor income. Ensure
-              you meet all your tax obligations with ease by accurately
-              calculating your contractor’s tax.
-            </p>
-          </div>
-          <div className="bg-teal-800 p-6 rounded-lg shadow-lg hover:bg-teal-700 transition duration-300 ease-in-out">
-            <h4 className="text-xl font-semibold mb-3">
-              📈 Business Receipts Tax
-            </h4>
-            <p>
-              Managing business receipts and taxes can be complex. Our tool
-              provides a straightforward solution for calculating business
-              receipts tax, making it easier to keep track of your tax
-              responsibilities and stay compliant with regulations.
-            </p>
-          </div>
-          <div className="bg-teal-800 p-6 rounded-lg shadow-lg hover:bg-teal-700 transition duration-300 ease-in-out">
-            <h4 className="text-xl font-semibold mb-3">📅 Annual Income Tax</h4>
-            <p>
-              Simplify the process of calculating your annual income tax with
-              our comprehensive tool. Whether you’re an individual or a business
-              owner, our calculator helps you understand your total annual tax
-              liability, ensuring you’re prepared for tax season.
-            </p>
-          </div>
+          {[
+            {
+              icon: "💼",
+              title: "Salary Tax",
+              description:
+                "Effortlessly calculate your salary tax with our intuitive tool. Input your income details, and our system will generate accurate salary tax computations, helping you understand your tax obligations and avoid any unexpected liabilities.",
+            },
+            {
+              icon: "🏠",
+              title: "Rental Tax",
+              description:
+                "If you earn income from rental properties, our calculator simplifies the rental tax process. Enter your rental income and expenses, and receive a clear breakdown of the taxes you need to pay.",
+            },
+            {
+              icon: "🔨",
+              title: "Contractors Tax",
+              description:
+                "Contractors can benefit from our specialized tax calculator designed to handle the unique aspects of contractor income. Ensure you meet all your tax obligations with ease by accurately calculating your contractor’s tax.",
+            },
+            {
+              icon: "📈",
+              title: "Business Receipts Tax",
+              description:
+                "Managing business receipts and taxes can be complex. Our tool provides a straightforward solution for calculating business receipts tax, making it easier to keep track of your tax responsibilities and stay compliant with regulations.",
+            },
+            {
+              icon: "📅",
+              title: "Annual Income Tax",
+              description:
+                "Simplify the process of calculating your annual income tax with our comprehensive tool. Whether you’re an individual or a business owner, our calculator helps you understand your total annual tax liability, ensuring you’re prepared for tax season.",
+            },
+          ].map((feature, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition duration-300 ease-in-out"
+            >
+              <h4 className="text-xl font-semibold mb-3 text-black">
+                {feature.icon} {feature.title}
+              </h4>
+              <p className="text-gray-800">{feature.description}</p>
+            </div>
+          ))}
         </div>
 
-        <h3 className="text-2xl font-semibold mt-8 mb-4">Why Choose Us?</h3>
+        <h3 className="text-2xl font-semibold mt-8 mb-4 text-black">
+          Why Choose Us?
+        </h3>
         <ul className="list-disc list-inside space-y-2 mb-6 text-lg leading-relaxed">
           <li>
             <strong className="text-teal-300">User-Friendly Interface:</strong>{" "}

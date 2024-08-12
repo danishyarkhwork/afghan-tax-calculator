@@ -79,7 +79,13 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="bg-slate-200 min-h-full text-gray-900">
+    <div
+      className="min-h-full flex flex-col justify-center items-center text-gray-800"
+      style={{
+        background:
+          "linear-gradient(to bottom, #ffffff, #bde0e0, #80cccc, #4fb5b5, #2c7a7b)",
+      }}
+    >
       <main className="container mx-auto px-4 max-w-6xl pt-5 md:pt-8 lg:pt-8 pb-10">
         <h2 className="text-2xl justify-center hidden md:flex md:text-4xl font-bold mb-2 md:mb-5 text-center">
           Free Online Afghan Tax Calculator
