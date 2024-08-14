@@ -103,7 +103,7 @@ const HomePage: React.FC = () => {
         <div className="md:hidden mb-4">
           <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="flex justify-between items-center w-full bg-gray-100 text-teal-700 px-4 py-2 rounded shadow-md"
+            className="flex justify-between items-center w-full bg-slate-50 text-teal-700 px-4 py-2 rounded shadow-md"
           >
             <span className="flex items-center">
               <span role="img" aria-label={activeTab} className="mr-2">
@@ -126,7 +126,7 @@ const HomePage: React.FC = () => {
             />
           </button>
           {dropdownOpen && (
-            <div className="flex flex-col mt-2 space-y-2 bg-gray-100 p-2 rounded shadow-lg">
+            <div className="flex flex-col mt-2 space-y-2 bg-gray-50 p-2 rounded shadow-lg">
               {["salary", "rental", "contractors", "business", "annual"].map(
                 (tab) => (
                   <button
@@ -136,7 +136,7 @@ const HomePage: React.FC = () => {
                       setDropdownOpen(false);
                     }}
                     className={`flex items-center px-4 py-2 text-left text-teal-700 ${
-                      activeTab === tab ? "bg-teal-100" : "bg-white"
+                      activeTab === tab ? "bg-gray-200" : "bg-white"
                     } hover:bg-teal-100 transition duration-300 rounded`}
                   >
                     <span role="img" aria-label={tab} className="mr-2">
