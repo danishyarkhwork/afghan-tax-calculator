@@ -5,7 +5,7 @@ import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="bg-slate-200 min-h-full text-gray-900 flex flex-col items-center py-10 px-4 md:px-0">
+    <div className="bg-slate-100 min-h-full text-gray-900 flex flex-col items-center py-10 px-4 md:px-0">
       <main className="w-full max-w-4xl">
         <h2 className="text-4xl font-bold mb-8 text-center">Contact Us</h2>
 
@@ -24,7 +24,7 @@ const ContactPage: React.FC = () => {
               <h3 className="text-lg font-semibold">Email</h3>
               <a
                 href="mailto:support@afghantaxcalculator.com"
-                className="text-sm text-teal-200 hover:text-teal-100"
+                className="text-sm hover:text-teal-100"
               >
                 support@afghantaxcalculator.com
               </a>
@@ -36,7 +36,7 @@ const ContactPage: React.FC = () => {
               <h3 className="text-lg font-semibold">WhatsApp</h3>
               <a
                 href="https://wa.me/+93703325036"
-                className="text-sm text-teal-200 hover:text-teal-100"
+                className="text-sm hover:text-teal-100"
               >
                 +93 70 332 5036
               </a>

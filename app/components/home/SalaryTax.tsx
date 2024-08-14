@@ -182,7 +182,7 @@ const SalaryTax: React.FC = () => {
           </div>
         </div>
         <div
-          className="container mx-auto max-w-6xl bg-gray-100 p-2 rounded-lg"
+          className="container mx-auto max-w-6xl bg-gray-50 p-2 rounded-lg"
           id="salary-tax-content"
         >
           {loading ? (

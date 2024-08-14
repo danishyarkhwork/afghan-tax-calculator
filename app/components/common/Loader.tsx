@@ -2,12 +2,11 @@ import React from "react";
 
 const TaxCalculatorLoader: React.FC = () => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-transparent z-50">
-      <div className="absolute inset-0 bg-white bg-opacity-60 backdrop-blur-lg"></div>
-      <div className="relative flex flex-col items-center space-y-4">
+    <div className="fixed inset-0 flex items-center justify-center bg-slate-50 bg-opacity-20 backdrop-blur-xl z-50">
+      <div className="relative flex flex-col items-center space-y-6">
         {/* Calculator Icon */}
         <svg
-          className="w-20 h-20 text-gray-800 animate-bounce"
+          className="w-24 h-24 text-teal-300 animate-bounce"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -28,17 +27,17 @@ const TaxCalculatorLoader: React.FC = () => {
         </svg>
 
         {/* Text "Afghan Tax Calculator" */}
-        <div className="text-2xl font-bold text-gray-800">
+        <div className="text-3xl font-bold text-teal-300">
           Afghan Tax Calculator
         </div>
 
         {/* Loading Dots Animation */}
-        <div className="flex space-x-1 text-gray-800">
+        <div className="flex space-x-1 text-teal-200">
           {["L", "o", "a", "d", "i", "n", "g", ".", ".", "."].map(
             (char, index) => (
               <span
                 key={index}
-                className={`text-2xl font-mono animate-pulse`}
+                className="text-2xl font-mono animate-pulse"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 {char}

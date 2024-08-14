@@ -72,7 +72,7 @@ const BlogPostContent: React.FC<BlogPostContentProps> = ({ post }) => {
           content={`https://afghantaxcalculator.com/${post.slug}`}
         />
       </Head>
-      <div className="bg-slate-200 min-h-full text-gray-900">
+      <div className="bg-slate-100 min-h-full text-gray-900">
         <main className="container mx-auto p-4 max-w-6xl">
           <article>
             <Image

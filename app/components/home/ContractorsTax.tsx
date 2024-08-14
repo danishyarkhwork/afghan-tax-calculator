@@ -66,7 +66,7 @@ const ContractorsTax: React.FC = () => {
 
   return (
     <FullScreen handle={handle}>
-      <div className="bg-gray-100 rounded min-h-screen text-gray-900 md:p-6 p-3 lg:p-6">
+      <div className="bg-gray-50 rounded min-h-screen text-gray-900 md:p-6 p-3 lg:p-6">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 relative">
           <div className="mt-4 sm:mt-0">
             <h1 className="text-3xl font-bold">Contractors Tax</h1>
@@ -136,7 +136,7 @@ const ContractorsTax: React.FC = () => {
           </div>
         </div>
         <div
-          className="container mx-auto max-w-6xl bg-gray-100 p-2 rounded-lg"
+          className="container mx-auto max-w-6xl bg-gray-50 p-2 rounded-lg"
           id="contractors-tax-content"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
