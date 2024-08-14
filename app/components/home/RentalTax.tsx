@@ -68,7 +68,7 @@ const RentalTax: React.FC = () => {
   };
 
   return (
-    <FullScreen handle={handle}>
+    <FullScreen handle={handle} className="bg-slate-50">
       <div className="bg-gray-50 rounded min-h-screen text-gray-900 md:p-6 p-3 lg:p-6">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 relative">
           <div className="mt-4 sm:mt-0">
