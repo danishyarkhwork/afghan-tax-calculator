@@ -1,3 +1,7 @@
+AfghanTaxCalculator is a free online tool designed to simplify tax calculations for Afghan taxpayers, covering salary tax, rental tax, contractors tax, business receipts tax, and annual income tax. Users can input their financial details to get accurate computations, ensuring compliance with Afghan tax laws and avoiding penalties.
+
+Website: https://afghantaxcalculator.com/
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
